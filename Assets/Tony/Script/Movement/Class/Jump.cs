@@ -21,15 +21,6 @@ namespace Tony
         }
         void IJump.Jump(float force)
         {
-            // rb.velocity = new Vector2(rb.velocity.x, force);
-            DoubleJump(force);
-        }
-
-
-        private void DoubleJump(float force)
-        {
-            //horizontal = Input.GetAxisRaw("Horizontal");
-
             if (IsGrounded())
             {
                 doubleJump = false;
@@ -48,9 +39,34 @@ namespace Tony
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
-
-            // Flip();
         }
+
+
+        //private void DoubleJump(float force)
+        //{
+            
+
+        //    if (IsGrounded())
+        //    {
+        //        doubleJump = false;
+        //    }
+
+
+        //    if (IsGrounded() || doubleJump)
+        //    {
+        //        rb.velocity = new Vector2(rb.velocity.x, force);
+
+        //        doubleJump = !doubleJump;
+        //    }
+
+
+        //    if (rb.velocity.y > 0f)
+        //    {
+        //        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        //    }
+
+        //    // Flip();
+        //}
 
 
         private bool IsGrounded()

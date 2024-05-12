@@ -8,7 +8,14 @@ namespace Tony
         public override void Start()
         {
             base.Start();
-            btn.onClick.AddListener(movementController.Jump);
+        }
+        public override void Update()
+        {
+            if (isPressed)
+            {
+                movementController.MoveUp();
+            }
+
         }
     }
 }
