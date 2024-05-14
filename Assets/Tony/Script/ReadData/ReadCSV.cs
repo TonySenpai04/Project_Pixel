@@ -1,40 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tony;
 using UnityEngine;
+
+[Serializable]
+public class Data {
+    public int Level;
+    public int EXPNeed;
+    public int ATK;
+    public int HP ;
+    public float DEG;
+    public int CP;
+}
 
 public class ReadCSV : MonoBehaviour
 {
-    public int Id;
-    public string Name;
 
+    [SerializeField] private CharacterData characterData;
+    [SerializeField]private List<Data> datas;
 
-    public List<int> Levels = new List<int>();
-    public List<int> EXPNeeds = new List<int>();
-    public List<int> ATKs = new List<int>();
-    public List<float> DEGs = new List<float>();
-    public List<int> CPs = new List<int>();
+    public List<Data> Datas { get => datas;  }
 
-
-
+    private void Awake()
+    {
+        ReadData();
+    }
     public void ReadData()
     {
-        var fileCsv = Resources.Load<TextAsset>($"{Id}_{Name}");
-        if (fileCsv != null)
+        if (characterData != null)
         {
-            var csvText = fileCsv.text.Trim().Replace("\r\n", "\n");
+            var csvText = characterData.csvFile.text.Trim().Replace("\r\n", "\n");
             var lines = csvText.Split("\n");
             for (int i = 1; i < lines.Length; i++)
             {
-                var segments = lines[i].Split(';');
+                var segments = lines[i].Split(',');
 
                 if (segments.Length > 0)
                 {
-                    Levels.Add(int.Parse(segments[2]));
-
-                    EXPNeeds.Add(int.Parse(segments[3]));
-                    ATKs.Add(int.Parse(segments[4]));
-                    DEGs.Add(float.Parse(segments[5]));
-                    CPs.Add(int.Parse(segments[6]));
+                    Data data=new Data();
+                    data.Level = int.Parse(segments[2]);
+                    data.EXPNeed = int.Parse(segments[3]);
+                    data.ATK = int.Parse(segments[4]);
+                    data.HP = int.Parse(segments[5]);
+                    data.DEG = float.Parse(segments[6]);
+                    data.CP = int.Parse(segments[7]);
+                    Datas.Add(data);
 
                 }
             }

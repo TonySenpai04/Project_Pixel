@@ -5,35 +5,67 @@ namespace Tony
     {
         [SerializeField] private int level = 1;
         [SerializeField] private float currentExperience = 0;
-        [SerializeField] private int experienceNeededForNextLevel = 20;
-        [SerializeField] private float baseExp;
-        [SerializeField] private float experienceMultiplier = 1.2f;
-
-        public Level()
+        [SerializeField] private int experienceNeed ;
+        [SerializeField] private ReadCSV readCSV;
+        private IHitPoint hitPoint;
+        private IATK atk;
+        public Level(ReadCSV readCSV, IHitPoint hitPoint, IATK atk)
         {
-            this.baseExp = experienceNeededForNextLevel;
+            this.readCSV = readCSV;
+            this.hitPoint = hitPoint;
+            this.atk = atk;
+            foreach (var item in readCSV.Datas)
+            {
+                if (item.Level == this.level)
+                {
+                    this.experienceNeed = item.EXPNeed;
+                    hitPoint.SetHealth(item.HP);
+                    ((IDodge)hitPoint).SetDodge(item.DEG);
+                    ((ICP)hitPoint).SetCP(item.CP);
+                    atk.SetAtk(item.ATK);
 
+                }
+            }
         }
 
         public void GainExperience(int amount)
         {
             currentExperience += amount;
-            if (currentExperience >= experienceNeededForNextLevel)
+            if (currentExperience >= experienceNeed)
             {
-                LevelUp();
+                if (level < readCSV.Datas.Count)
+                {
+                    currentExperience -= experienceNeed;
+                    LevelUp();
+                }
+                else
+                {
+                    currentExperience = experienceNeed;
+
+                }
+                //currentExperience -= experienceNeed;
+                //LevelUp();
+                
             }
-        }
-        public void Restart()
-        {
-            level = 1;
-            experienceNeededForNextLevel = 20;
-            currentExperience = 0;
-            baseExp = experienceNeededForNextLevel;
         }
         void LevelUp()
         {
-            level++;
-         
+             level++;
+            
+ 
+            foreach (var item in readCSV.Datas)
+            {
+                if (item.Level == this.level)
+                {
+                    this.experienceNeed = item.EXPNeed;
+                    hitPoint.SetHealth(item.HP);
+                    ((IDodge)hitPoint).SetDodge(item.DEG);
+                    ((ICP)hitPoint).SetCP(item.CP);
+                    atk.SetAtk(item.ATK);
+
+                }
+            }
+
 
         }
 
@@ -44,17 +76,22 @@ namespace Tony
 
         public float GetExperience()
         {
-            return experienceNeededForNextLevel;
+            return experienceNeed;
         }
 
         public void SetExperience(int experience)
         {
-            experienceNeededForNextLevel = experience;
+            experienceNeed = experience;
         }
 
         public int GetLevel()
         {
             return level;
+        }
+
+        public void SetLevel(int level)
+        {
+            this.level= level;
         }
     }
 }

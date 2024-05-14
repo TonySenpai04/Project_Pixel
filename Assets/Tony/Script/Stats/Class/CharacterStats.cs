@@ -8,46 +8,68 @@ namespace Tony
     {
         private IHitPoint hitPoint;
         private ILevel level;
-        private IATKStats aTK;
-        [SerializeField]private CharacterData chacracterData;
+        private IATK aTK;
         public static CharacterStats instance;
         public TextMeshProUGUI statsTxt;
+        public ReadCSV readCSV;
+        public int currentLevel=1;
 
-        void Awake()
-        {
+       void Awake()
+       {
             instance = this;
-            if (chacracterData != null )
-            {
-                hitPoint = new HitPoint(chacracterData.hitPoint,chacracterData.dodge);
-                aTK = new ATK(chacracterData.aTK, chacracterData.critRate, chacracterData.attackRange, chacracterData.attackSpeed, chacracterData.critDamage);
-                level = new Level();
+           
 
-                statsTxt.text = 
-                    " HP:"+hitPoint.GetHealth()
+       }
+        private void Start()
+        {
+            Invoke(nameof(SetData), 1f);
+        }
+        private void SetData()
+        {
+            foreach (var item in readCSV.Datas)
+            {
+                if (item.Level == currentLevel)
+                {
+                    hitPoint = new HitPoint(item.HP, item.DEG, item.CP);
+                    aTK = new ATK(item.ATK);
+                    level = new Level(readCSV, hitPoint, aTK);
+                    statsTxt.text =
+                    " HP:" + hitPoint.GetHealth()
                     + "\n Atk:" + aTK.GetAtk()
+                    + "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience()
                     + "\n Level:" + level.GetLevel()
-                    + "\n Dodge:" +((IDodge)hitPoint).GetDodge() 
-                    + "\n Attack Range:" + aTK.GetAttackRange() 
-                    + "\n Attack Speed:" +aTK.GetAttackSpeed()
-                    + "\n Crit Damage:" + aTK.GetCritDamage()
-                    + "\n Crit Rate:" + aTK.GetCritRate()
+                    + "\n Dodge:" + ((IDodge)hitPoint).GetDodge()
+                    + "\n CP:" + ((ICP)hitPoint).GetCP()
+                    ;
+                }
+            }
+        }
+        private void Update()
+        {
+            if(Input.GetKeyUp(KeyCode.U))
+            {
+                level.GainExperience(1000);
+                this.currentLevel = level.GetLevel();
+                statsTxt.text =
+                    " HP:" + hitPoint.GetHealth()
+                    + "\n Atk:" + aTK.GetAtk()
+                    + "\n EXP:" + level.GetCurrentExp() + "/" +level.GetExperience()
+                    + "\n Level:" + level.GetLevel()
+                    + "\n Dodge:" + ((IDodge)hitPoint).GetDodge()
+                    + "\n CP:" + ((ICP)hitPoint).GetCP()
                     ;
 
             }
-
         }
-
-        public void SetData(CharacterData characterData)
+        public void SetData(ReadCSV readCSV)
         {
-            this.chacracterData = characterData;
-            hitPoint = new HitPoint(chacracterData.hitPoint, chacracterData.dodge);
-            aTK = new ATK(chacracterData.aTK, chacracterData.critRate, chacracterData.attackRange, chacracterData.attackSpeed, chacracterData.critDamage);
-            level = new Level();
+            this.readCSV = readCSV;
+
         }
         void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, chacracterData.attackRange);
+            Gizmos.DrawWireSphere(transform.position, 2);
         }
 
     }

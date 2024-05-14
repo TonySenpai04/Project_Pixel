@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GetDataFromCSV : MonoBehaviour
 {
@@ -9,16 +10,32 @@ public class GetDataFromCSV : MonoBehaviour
     public int Level;
     public int EXPNeed;
     public int ATK;
+    public int HP;
     public float DEG;
     public int CP;
-
-    public void ChangeLevel(int inputLevel)
+    public int inputLevel;
+    private void Update()
     {
-        Level = readCSV.Levels[inputLevel - 1];
-        EXPNeed = readCSV.EXPNeeds[inputLevel - 1];
-        ATK = readCSV.ATKs[inputLevel - 1];
-        DEG = readCSV.DEGs[inputLevel - 1];
-        CP = readCSV.CPs[inputLevel - 1];
+        if (inputLevel >= 1)
+        {
+            ChangeLevel();
+        }
+    }
+    public void ChangeLevel()
+    {
+        foreach (var item in readCSV.Datas)
+        {
+            if(item.Level == inputLevel)
+            {
+                this.Level=item.Level;
+                this.EXPNeed=item.EXPNeed;
+                this.ATK=item.ATK;
+                this.HP=item.HP;
+                this.DEG=item.DEG;
+                this.CP=item.CP;
+             
+            }
+        }
     }
 
 }

@@ -2,6 +2,6 @@
 {
     internal interface IAttackActions
     {
-        void SetData(float atk, float critRate, float attackRange, float attackSpeed, float critDamage);
+        void SetData(float atk);
     }
 }

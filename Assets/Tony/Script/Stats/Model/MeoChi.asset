@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 049d9148a8c0fc749963352b4c7a1c75, type: 3}
-  m_Name: Character01
+  m_Script: {fileID: 11500000, guid: 97e35db46cd992c409254b97e2a618f1, type: 3}
+  m_Name: MeoChi
   m_EditorClassIdentifier: 
-  name: Character1
-  hitPoint: 100
-  dodge: 0
-  level: 1
-  aTK: 1
-  critRate: 0
-  attackRange: 2
-  attackSpeed: 0.5
-  critDamage: 1
-  specialAbility: 0
-  coolDown: 5
+  csvFile: {fileID: 4900000, guid: 22b14d8f3315c3f4eaad2b6d346a5c2f, type: 3}

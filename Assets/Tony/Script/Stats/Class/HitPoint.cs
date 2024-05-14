@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 namespace Tony
 {
-    public class HitPoint : IHitPoint,IDodge
+    public class HitPoint : IHitPoint,IDodge,ICP
     {
         private float health;
         private float currentHealth;
-        private float baseHealth;
         private float dodge;
-        public HitPoint(float health, float dodge)
+        private float CP;
+        public HitPoint(float health, float dodge, float cP)
         {
             this.health = health;
             currentHealth = health;
-            baseHealth = health;
             this.dodge = dodge;
+            this.CP = cP;
         }
 
         public void TakeDamage(int damage)
@@ -45,15 +45,6 @@ namespace Tony
             currentHealth = health;
         }
 
-        public void Increasehealth(float amount)
-        {
-            health += amount;
-        }
-
-        public float GetBaseHealth()
-        {
-            return baseHealth;
-        }
 
         public float GetDodge()
         {
@@ -63,6 +54,16 @@ namespace Tony
         public void SetDodge(float dodge)
         {
           this.dodge=   dodge;
+        }
+
+        public float GetCP()
+        {
+            return this.CP;
+        }
+
+        public void SetCP(float value)
+        {
+            this.CP= value;
         }
     }
 
