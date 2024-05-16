@@ -7,7 +7,6 @@ namespace Tony
     {
 
         private Rigidbody2D rb;
-        private bool isFacingRight = true;
 
         private bool doubleJump;
 

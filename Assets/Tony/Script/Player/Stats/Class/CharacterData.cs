@@ -7,7 +7,7 @@ namespace Tony
     public class CharacterData : ScriptableObject
     {
         public string id;
-        public string name;
+        public string characterName;
         public TextAsset csvFile;
         public void SpeacialAbility()
         {

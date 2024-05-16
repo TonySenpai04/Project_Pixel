@@ -6,15 +6,15 @@ namespace Tony
         [SerializeField] private int level = 1;
         [SerializeField] private float currentExperience = 0;
         [SerializeField] private int experienceNeed ;
-        [SerializeField] private ReadCSV readCSV;
+        [SerializeField] private IReadCSV<Data> readCSV;
         private IHitPoint hitPoint;
         private IATK atk;
-        public Level(ReadCSV readCSV, IHitPoint hitPoint, IATK atk)
+        public Level(IReadCSV<Data> readCSV, IHitPoint hitPoint, IATK atk)
         {
             this.readCSV = readCSV;
             this.hitPoint = hitPoint;
             this.atk = atk;
-            foreach (var item in readCSV.Datas)
+            foreach (var item in readCSV.GetData())
             {
                 if (item.Level == this.level)
                 {
@@ -33,7 +33,7 @@ namespace Tony
             currentExperience += amount;
             if (currentExperience >= experienceNeed)
             {
-                if (level < readCSV.Datas.Count)
+                if (level < readCSV.GetData().Count)
                 {
                     currentExperience -= experienceNeed;
                     LevelUp();
@@ -53,7 +53,7 @@ namespace Tony
              level++;
             
  
-            foreach (var item in readCSV.Datas)
+            foreach (var item in readCSV.GetData())
             {
                 if (item.Level == this.level)
                 {

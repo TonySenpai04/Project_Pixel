@@ -14,23 +14,28 @@ public class Data {
     public int CP;
 }
 
-public class ReadCSV : MonoBehaviour
+public class ReadCharacterCSV<T> :IReadCSV<Data>
 {
 
     [SerializeField] private CharacterData characterData;
-    [SerializeField]private List<Data> datas;
+    [SerializeField] private List<Data> datas=new List<Data>();
+    private TextAsset textAsset;
 
-    public List<Data> Datas { get => datas;  }
+     public ReadCharacterCSV(CharacterData characterData)
+     {
+        this.characterData = characterData;
+        textAsset = characterData.csvFile;
+     }
 
-    private void Awake()
+    public List<Data> GetData()
     {
-        ReadData();
+        return datas;
     }
-    public void ReadData()
+    public void ReadData(Action onComplete)
     {
-        if (characterData != null)
+        if (textAsset != null)
         {
-            var csvText = characterData.csvFile.text.Trim().Replace("\r\n", "\n");
+            var csvText = textAsset.text.Trim().Replace("\r\n", "\n");
             var lines = csvText.Split("\n");
             for (int i = 1; i < lines.Length; i++)
             {
@@ -45,10 +50,11 @@ public class ReadCSV : MonoBehaviour
                     data.HP = int.Parse(segments[5]);
                     data.DEG = float.Parse(segments[6]);
                     data.CP = int.Parse(segments[7]);
-                    Datas.Add(data);
+                    datas.Add(data);
 
                 }
             }
+            onComplete?.Invoke();
         }
         else
         {

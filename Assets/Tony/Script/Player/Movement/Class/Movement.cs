@@ -11,14 +11,11 @@ namespace Tony
             this.rb = rb;
 
         }
-        public void MoveHorizontal(float dir)
+        public void Move(float x,float y)
         {
-            rb.velocity = new Vector2(dir, rb.velocity.y);
+            rb.velocity = new Vector2(x, y);
         }
 
-        public void MoveVertical(float dir)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, dir);
-        }
+       
     }
 }

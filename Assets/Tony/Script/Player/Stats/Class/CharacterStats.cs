@@ -9,24 +9,21 @@ namespace Tony
         private IHitPoint hitPoint;
         private ILevel level;
         private IATK aTK;
-        public static CharacterStats instance;
-        public TextMeshProUGUI statsTxt;
-        public ReadCSV readCSV;
-        public int currentLevel=1;
+        private IReadCSV<Data> readCSV;
 
-       void Awake()
+        public TextMeshProUGUI statsTxt;
+        [SerializeField] private CharacterData characterData;
+        public int currentLevel=1;
+        public static CharacterStats instance;
+        void Awake()
        {
             instance = this;
-           
-
+            readCSV = new ReadCharacterCSV<Data>(characterData);
+            readCSV.ReadData(SetData);
        }
-        private void Start()
-        {
-            Invoke(nameof(SetData), 1f);
-        }
         private void SetData()
         {
-            foreach (var item in readCSV.Datas)
+            foreach (var item in readCSV.GetData())
             {
                 if (item.Level == currentLevel)
                 {
@@ -61,7 +58,7 @@ namespace Tony
 
             }
         }
-        public void SetData(ReadCSV readCSV)
+        public void SetData(IReadCSV<Data> readCSV)
         {
             this.readCSV = readCSV;
 

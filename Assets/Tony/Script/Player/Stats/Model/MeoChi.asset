@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e35db46cd992c409254b97e2a618f1, type: 3}
   m_Name: MeoChi
   m_EditorClassIdentifier: 
+  id: 10001
+  name: Meochi
   csvFile: {fileID: 4900000, guid: 22b14d8f3315c3f4eaad2b6d346a5c2f, type: 3}
