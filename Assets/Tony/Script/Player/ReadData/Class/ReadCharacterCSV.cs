@@ -6,6 +6,8 @@ using UnityEngine;
 
 [Serializable]
 public class Data {
+    public string ID;
+    public string Name;
     public int Level;
     public int EXPNeed;
     public int ATK;
@@ -17,8 +19,8 @@ public class Data {
 public class ReadCharacterCSV<T> :IReadCSV<Data>
 {
 
-    [SerializeField] private CharacterData characterData;
-    [SerializeField] private List<Data> datas=new List<Data>();
+    private CharacterData characterData;
+    private List<Data> datas=new List<Data>();
     private TextAsset textAsset;
 
      public ReadCharacterCSV(CharacterData characterData)
@@ -44,6 +46,10 @@ public class ReadCharacterCSV<T> :IReadCSV<Data>
                 if (segments.Length > 0)
                 {
                     Data data=new Data();
+                    
+                    data.ID = !string.IsNullOrWhiteSpace(segments[0]) ? segments[0] : "";
+                    data.Name = !string.IsNullOrWhiteSpace(segments[1]) ? segments[1] : "";
+                    
                     data.Level = int.Parse(segments[2]);
                     data.EXPNeed = int.Parse(segments[3]);
                     data.ATK = int.Parse(segments[4]);

@@ -1,36 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 namespace Tony
 {
-    public class Level : ILevel
+    public class PetLevel : ILevel
     {
         private int level = 1;
         private float currentExperience = 0;
-        private int experienceNeed ;
-        private IReadCSV<Data> readCSV;
+        private int experienceNeed;
+        private IReadCSV<PetData> readCSV;
         private IHitPoint hitPoint;
         private IATK atk;
-        public Level(IReadCSV<Data> readCSV, IHitPoint hitPoint, IATK atk)
+        public PetLevel(IReadCSV<PetData> readCSV, IHitPoint hitPoint, IATK atk)
         {
             this.readCSV = readCSV;
             this.hitPoint = hitPoint;
             this.atk = atk;
             SetData();
         }
-        void SetData()
-        {
-            foreach (var item in readCSV.GetData())
-            {
-                if (item.Level == this.level)
-                {
-                    this.experienceNeed = item.EXPNeed;
-                    hitPoint.SetHealth(item.HP);
-                    ((IDodge)hitPoint).SetDodge(item.DEG);
-                    ((ICP)hitPoint).SetCP(item.CP);
-                    atk.SetAtk(item.ATK);
 
-                }
-            }
-        }
         public void GainExperience(int amount)
         {
             currentExperience += amount;
@@ -46,17 +34,34 @@ namespace Tony
                     currentExperience = experienceNeed;
 
                 }
-                //currentExperience -= experienceNeed;
-                //LevelUp();
-                
+   
+
+            }
+        }
+        void SetData()
+        {
+            foreach (var item in readCSV.GetData())
+            {
+                if (item.Level == this.level)
+                {
+                    this.experienceNeed = item.EXPNeed;
+                    hitPoint.SetHealth(item.HP);
+                    atk.SetAtk(item.ATK);
+                    ((ICD)atk).SetCD(item.CD);
+                    ((ICP)hitPoint).SetCP(item.CP);
+                    ((IATKS)atk).SetATKS(item.ATKS);
+                    ((IATKR)atk).SetATKR(item.ATKR);
+                    ((ICR)atk).SetCR(item.CR);
+
+                }
             }
         }
         void LevelUp()
         {
-             level++;
-
-
+            level++;
             SetData();
+
+
 
 
         }
@@ -83,7 +88,7 @@ namespace Tony
 
         public void SetLevel(int level)
         {
-            this.level= level;
+            this.level = level;
         }
     }
 }
