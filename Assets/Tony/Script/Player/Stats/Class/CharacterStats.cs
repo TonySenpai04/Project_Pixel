@@ -30,11 +30,11 @@ namespace Tony
             {
                 if (item.CharacterID != "" && item.CharacterName != "")
                 {
-                    this.characterData.id = item.CharacterID;
+                    this.characterData.characterID = item.CharacterID;
                     this.characterData.name = item.CharacterName;
                 }
             }
-            UpdateCharacterData();
+            Initialization();
         }
         private void UpdateCharacterData()
         {
@@ -42,9 +42,19 @@ namespace Tony
 
             if (currentData != null)
             {
+
+                UpdateStatsText();
+            }
+        }
+        protected void Initialization()
+        {
+            Data currentData = datas.Find(item => item.Level == currentLevel);
+
+            if (currentData != null)
+            {
                 hitPoint = new HitPoint(currentData.HP, currentData.DEG, currentData.CP);
                 atk = new ATK(currentData.ATK);
-                level = new Level(readCSV, hitPoint, atk,currentLevel);
+                level = new Level(readCSV, hitPoint, atk, currentLevel);
 
                 UpdateStatsText();
             }

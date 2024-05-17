@@ -19,18 +19,23 @@ namespace Tony
         protected ILevel level;
         protected IATK atk;
         public TextAsset CSVFIle { get => csvFile; }
+        public IHitPoint HitPoint { get => hitPoint; }
+        public List<PetData> PetDatas { get => petDatas; }
+        public IATK Atk { get => atk;}
+        public ILevel Level { get => level;  }
 
         public virtual void Awake()
         {
             readCSV = new ReadPetCSV<PetData>(this);
             readCSV.ReadData(SetData);
+          
         }
         public virtual void SetData()
         {
 
             List<PetData> petDatasClone = readCSV.GetData();
             this.petDatas=petDatasClone;
-            foreach (var item in petDatas)
+            foreach (var item in PetDatas)
             {
                 if (item.PetID != "" && item.PetName != "")
                 {
@@ -38,18 +43,28 @@ namespace Tony
                     this.petName = item.PetName;
                 }  
             }
-             UpdatePetData();
-            
+            Initialization();
+
         }
-        protected void UpdatePetData()
+        protected void Initialization()
         {
-            PetData currentPetData = petDatas.Find(item => item.Level == currentLevel);
+            PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
 
             if (currentPetData != null)
             {
                 hitPoint = new PetHitPoint(currentPetData.HP, currentPetData.CP);
                 atk = new PetATK(currentPetData.ATK, currentPetData.ATKR, currentPetData.ATKS, currentPetData.CR, currentPetData.CD);
-                level = new PetLevel(readCSV, hitPoint, atk,currentLevel);
+                level = new PetLevel(readCSV, HitPoint, Atk, currentLevel);
+
+                UpdateStatsText(currentPetData);
+            }
+        }
+        protected void UpdatePetData()
+        {
+            PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
+
+            if (currentPetData != null)
+            {
 
                 UpdateStatsText(currentPetData);
             }
@@ -57,15 +72,15 @@ namespace Tony
         protected void UpdateStatsText(PetData petData)
         {
             statsTxt.text =
-                " HP:" + hitPoint.GetHealth() +
-                "\n Atk:" + atk.GetAtk() +
-                "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience() +
-                "\n Level:" + level.GetLevel() +
-                "\n ATKS:" + ((IATKS)atk).GetATKS() +
-                "\n ATKR:" + ((IATKR)atk).GetATKR() +
-                "\n CD:" + ((ICD)atk).GetCD() +
-                "\n CR:" + ((ICR)atk).GetCR() +
-                "\n CP:" + ((ICP)hitPoint).GetCP() +
+                " HP:" + HitPoint.GetHealth() +
+                "\n Atk:" + Atk.GetAtk() +
+                "\n EXP:" + Level.GetCurrentExp() + "/" + Level.GetExperience() +
+                "\n Level:" + Level.GetLevel() +
+                "\n ATKS:" + ((IATKS)Atk).GetATKS() +
+                "\n ATKR:" + ((IATKR)Atk).GetATKR() +
+                "\n CD:" + ((ICD)Atk).GetCD() +
+                "\n CR:" + ((ICR)Atk).GetCR() +
+                "\n CP:" + ((ICP)HitPoint).GetCP() +
                 "\n Level Skill 1:" + petData.LevelSkill1 +
                 "\n Level Skill 2:" + petData.LevelSkill2 +
                 "\n Level Skill 3:" + petData.LevelSkill3;
@@ -75,8 +90,8 @@ namespace Tony
         {
             if (Input.GetKeyUp(KeyCode.P))
             {
-                level.GainExperience(10000);
-                this.currentLevel = level.GetLevel();
+                Level.GainExperience(10000);
+                this.currentLevel = Level.GetLevel();
                 UpdatePetData();
 
 
