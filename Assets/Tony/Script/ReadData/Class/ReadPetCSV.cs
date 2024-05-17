@@ -8,8 +8,8 @@ namespace Tony
     [Serializable]
     public class PetData
     {
-        public string ID;
-        public string Name;
+        public string PetID;
+        public string PetName;
         public int Level;
         public int EXPNeed;
         public int ATK;
@@ -52,8 +52,8 @@ namespace Tony
                     {
                         PetData data = new PetData();
     
-                        data.ID = !string.IsNullOrWhiteSpace(segments[0]) ? segments[0] : "";
-                        data.Name = !string.IsNullOrWhiteSpace(segments[1]) ? segments[1] : "";
+                        data.PetID = !string.IsNullOrWhiteSpace(segments[0]) ? segments[0] : "";
+                        data.PetName = !string.IsNullOrWhiteSpace(segments[1]) ? segments[1] : "";
                         
                         data.Level = int.Parse(segments[2]);
                         data.EXPNeed = int.Parse(segments[3]);

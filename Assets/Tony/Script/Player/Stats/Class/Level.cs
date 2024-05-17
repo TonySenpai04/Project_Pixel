@@ -9,11 +9,12 @@ namespace Tony
         private IReadCSV<Data> readCSV;
         private IHitPoint hitPoint;
         private IATK atk;
-        public Level(IReadCSV<Data> readCSV, IHitPoint hitPoint, IATK atk)
+        public Level(IReadCSV<Data> readCSV, IHitPoint hitPoint, IATK atk,int level)
         {
             this.readCSV = readCSV;
             this.hitPoint = hitPoint;
             this.atk = atk;
+            this.level = level;
             SetData();
         }
         void SetData()

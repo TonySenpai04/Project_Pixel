@@ -11,11 +11,12 @@ namespace Tony
         private IReadCSV<PetData> readCSV;
         private IHitPoint hitPoint;
         private IATK atk;
-        public PetLevel(IReadCSV<PetData> readCSV, IHitPoint hitPoint, IATK atk)
+        public PetLevel(IReadCSV<PetData> readCSV, IHitPoint hitPoint, IATK atk,int level)
         {
             this.readCSV = readCSV;
             this.hitPoint = hitPoint;
             this.atk = atk;
+            this.level = level;
             SetData();
         }
 

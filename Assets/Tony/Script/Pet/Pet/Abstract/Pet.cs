@@ -8,11 +8,12 @@ namespace Tony
 {
     public abstract class Pet : MonoBehaviour
     {
-        [SerializeField] protected string id;
+        [SerializeField] protected string petID;
         [SerializeField] protected string petName;
         [SerializeField] protected TextAsset csvFile;
         [SerializeField] protected int currentLevel;
         [SerializeField] protected TextMeshProUGUI statsTxt;
+        [SerializeField] protected List<PetData> petDatas;
         protected IReadCSV<PetData> readCSV;
         protected IHitPoint hitPoint;
         protected ILevel level;
@@ -26,69 +27,59 @@ namespace Tony
         }
         public virtual void SetData()
         {
-            foreach (var item in readCSV.GetData())
+
+            List<PetData> petDatasClone = readCSV.GetData();
+            this.petDatas=petDatasClone;
+            foreach (var item in petDatas)
             {
-                if (item.ID != "" && item.Name != "")
+                if (item.PetID != "" && item.PetName != "")
                 {
-                    this.id = item.ID;
-                    this.petName = item.Name;
-                }
+                    this.petID = item.PetID;
+                    this.petName = item.PetName;
+                }  
             }
-            foreach (var item in readCSV.GetData())
+             UpdatePetData();
+            
+        }
+        protected void UpdatePetData()
+        {
+            PetData currentPetData = petDatas.Find(item => item.Level == currentLevel);
+
+            if (currentPetData != null)
             {
+                hitPoint = new PetHitPoint(currentPetData.HP, currentPetData.CP);
+                atk = new PetATK(currentPetData.ATK, currentPetData.ATKR, currentPetData.ATKS, currentPetData.CR, currentPetData.CD);
+                level = new PetLevel(readCSV, hitPoint, atk,currentLevel);
 
-                if (item.Level == currentLevel)
-                {
-                    hitPoint = new PetHitPoint(item.HP, item.CP);
-                    atk = new PetATK(item.ATK, item.ATKR, item.ATKS, item.CR, item.CD);
-                    level = new PetLevel(readCSV, hitPoint, atk);
-                    statsTxt.text =
-                       " HP:" + hitPoint.GetHealth()
-                       + "\n Atk:" + atk.GetAtk()
-                       + "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience()
-                       + "\n Level:" + level.GetLevel()
-                       + "\n ATKS:" + ((IATKS)atk).GetATKS()
-                       + "\n ATKR:" + ((IATKR)atk).GetATKR()
-                       + "\n CD:" + ((ICD)atk).GetCD()
-                       + "\n CR:" + ((ICR)atk).GetCR()
-                       + "\n CP:" + ((ICP)hitPoint).GetCP()
-                        + "\n Level Skill 1:" + item.LevelSkill1
-                         +"\n Level Skill 2:" + item.LevelSkill2
-                          + "\n Level Skill 3:" + item.LevelSkill3
-                       ;
-
-                }
+                UpdateStatsText(currentPetData);
             }
         }
+        protected void UpdateStatsText(PetData petData)
+        {
+            statsTxt.text =
+                " HP:" + hitPoint.GetHealth() +
+                "\n Atk:" + atk.GetAtk() +
+                "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience() +
+                "\n Level:" + level.GetLevel() +
+                "\n ATKS:" + ((IATKS)atk).GetATKS() +
+                "\n ATKR:" + ((IATKR)atk).GetATKR() +
+                "\n CD:" + ((ICD)atk).GetCD() +
+                "\n CR:" + ((ICR)atk).GetCR() +
+                "\n CP:" + ((ICP)hitPoint).GetCP() +
+                "\n Level Skill 1:" + petData.LevelSkill1 +
+                "\n Level Skill 2:" + petData.LevelSkill2 +
+                "\n Level Skill 3:" + petData.LevelSkill3;
+        }
+
         public virtual void Update()
         {
             if (Input.GetKeyUp(KeyCode.P))
             {
                 level.GainExperience(10000);
                 this.currentLevel = level.GetLevel();
-                foreach (var item in readCSV.GetData())
-                {
+                UpdatePetData();
 
-                    if (item.Level == currentLevel)
-                    {
-                        statsTxt.text =
-                           " HP:" + hitPoint.GetHealth()
-                           + "\n Atk:" + atk.GetAtk()
-                           + "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience()
-                           + "\n Level:" + level.GetLevel()
-                           + "\n ATKS:" + ((IATKS)atk).GetATKS()
-                           + "\n ATKR:" + ((IATKR)atk).GetATKR()
-                           + "\n CD:" + ((ICD)atk).GetCD()
-                           + "\n CR:" + ((ICR)atk).GetCR()
-                           + "\n CP:" + ((ICP)hitPoint).GetCP()
-                            + "\n Level Skill 1:" + item.LevelSkill1
-                             + "\n Level Skill 2:" + item.LevelSkill2
-                              + "\n Level Skill 3:" + item.LevelSkill3
-                           ;
 
-                    }
-                }
-                       ;
 
             }
         }

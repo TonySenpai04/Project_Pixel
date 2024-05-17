@@ -11,9 +11,10 @@ namespace Tony
         private IATK atk;
         private IReadCSV<Data> readCSV;
 
-        public TextMeshProUGUI statsTxt;
-        [SerializeField] private CharacterData characterData;
-        public int currentLevel=1;
+        [SerializeField] protected TextMeshProUGUI statsTxt;
+        [SerializeField] protected CharacterData characterData;
+        [SerializeField] protected List<Data> datas;
+        [SerializeField] protected int currentLevel=1;
         public static CharacterStats instance;
         void Awake()
         {
@@ -23,31 +24,40 @@ namespace Tony
         }
         private void SetData()
         {
-            foreach (var item in readCSV.GetData())
+            List<Data> datasClone = readCSV.GetData();
+            this.datas = datasClone;
+            foreach (var item in datas)
             {
-                if(item.ID!="" && item.Name != "")
+                if (item.CharacterID != "" && item.CharacterName != "")
                 {
-                    this.characterData.id= item.ID;
-                    this.characterData.characterName = item.Name;
+                    this.characterData.id = item.CharacterID;
+                    this.characterData.name = item.CharacterName;
                 }
             }
-            foreach (var item in readCSV.GetData())
+            UpdateCharacterData();
+        }
+        private void UpdateCharacterData()
+        {
+            Data currentData = datas.Find(item => item.Level == currentLevel);
+
+            if (currentData != null)
             {
-                if (item.Level == currentLevel)
-                {
-                    hitPoint = new HitPoint(item.HP, item.DEG, item.CP);
-                    atk = new ATK(item.ATK);
-                    level = new Level(readCSV, hitPoint, atk);
-                    statsTxt.text =
-                    " HP:" + hitPoint.GetHealth()
-                    + "\n Atk:" + atk.GetAtk()
-                    + "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience()
-                    + "\n Level:" + level.GetLevel()
-                    + "\n Dodge:" + ((IDodge)hitPoint).GetDodge()
-                    + "\n CP:" + ((ICP)hitPoint).GetCP()
-                    ;
-                }
+                hitPoint = new HitPoint(currentData.HP, currentData.DEG, currentData.CP);
+                atk = new ATK(currentData.ATK);
+                level = new Level(readCSV, hitPoint, atk,currentLevel);
+
+                UpdateStatsText();
             }
+        }
+        private void UpdateStatsText()
+        {
+            statsTxt.text =
+                " HP:" + hitPoint.GetHealth() +
+                "\n Atk:" + atk.GetAtk() +
+                "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience() +
+                "\n Level:" + level.GetLevel() +
+                "\n Dodge:" + ((IDodge)hitPoint).GetDodge() +
+                "\n CP:" + ((ICP)hitPoint).GetCP();
         }
         private void Update()
         {

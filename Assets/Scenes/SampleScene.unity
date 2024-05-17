@@ -1717,7 +1717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsTxt: {fileID: 1745463616}
   characterData: {fileID: 11400000, guid: e5ec3afa892f79e44b63f3af1a6897b8, type: 2}
-  currentLevel: 1
+  datas: []
+  currentLevel: 3
 --- !u!1 &1297734208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,11 +1834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5923166f266248c498f41a2d273a17e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  petID: 
   petName: 
   csvFile: {fileID: 4900000, guid: 50c5b2436d5c11d41905f378afd3009d, type: 3}
-  currentLevel: 1
+  currentLevel: 2
   statsTxt: {fileID: 1123080453}
+  petDatas: []
 --- !u!1 &1359083717
 GameObject:
   m_ObjectHideFlags: 0
