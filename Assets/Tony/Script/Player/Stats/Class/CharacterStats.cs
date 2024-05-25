@@ -16,6 +16,9 @@ namespace Tony
         [SerializeField] protected List<Data> datas;
         [SerializeField] protected int currentLevel=1;
         public static CharacterStats instance;
+
+        public IATK Atk { get => atk;  }
+
         void Awake()
         {
             instance = this;
@@ -54,7 +57,7 @@ namespace Tony
             {
                 hitPoint = new HitPoint(currentData.HP, currentData.DEG, currentData.CP);
                 atk = new ATK(currentData.ATK);
-                level = new Level(readCSV, hitPoint, atk, currentLevel);
+                level = new Level(readCSV, hitPoint, Atk, currentLevel);
 
                 UpdateStatsText();
             }
@@ -63,7 +66,7 @@ namespace Tony
         {
             statsTxt.text =
                 " HP:" + hitPoint.GetHealth() +
-                "\n Atk:" + atk.GetAtk() +
+                "\n Atk:" + Atk.GetAtk() +
                 "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience() +
                 "\n Level:" + level.GetLevel() +
                 "\n Dodge:" + ((IDodge)hitPoint).GetDodge() +

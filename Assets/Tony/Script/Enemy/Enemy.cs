@@ -15,4 +15,8 @@ public class Enemy : MonoBehaviour
     {
         
     }
+    public void TakeDamage(float dam)
+    {
+        Debug.Log(dam);
+    }
 }

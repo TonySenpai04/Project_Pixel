@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Tony
 {
-    public class DrazukoController : PetControllerBase
+    public class DrazukoProjectile : GenericProjectile
     {
 
-        
     }
 }
