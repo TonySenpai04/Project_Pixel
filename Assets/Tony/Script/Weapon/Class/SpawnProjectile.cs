@@ -19,7 +19,7 @@ namespace Tony
             this.force = force;
         }
 
-        public void Spawn(Pet pet,int count)
+        public void Spawn(Pet pet,int count,Transform target)
         {
             if (this.projectile == null)
                 return;
@@ -37,9 +37,9 @@ namespace Tony
                 {
                     projectileIns.GetComponent<GenericProjectile>().SetDam(pet.Atk.GetAtk());
                 }
-
-                var projRb = projectileIns.GetComponent<Rigidbody2D>();
-                projRb.AddForce(Vector2.right * force, ForceMode2D.Force);
+                projectileIns.GetComponent<GenericProjectile>().SetTarget(target);
+                //var projRb = projectileIns.GetComponent<Rigidbody2D>();
+                //projRb.AddForce(Vector2.right * force, ForceMode2D.Force);
             }
         }
     }

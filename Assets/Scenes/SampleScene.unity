@@ -386,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 279807235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.69, y: -3.21, z: 0}
+  m_LocalPosition: {x: 5.27, y: -3.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1873,7 +1873,7 @@ Transform:
   m_GameObject: {fileID: 1143583176}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.48, y: -3.09, z: 0}
+  m_LocalPosition: {x: -4.77, y: -3.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2057,6 +2057,7 @@ MonoBehaviour:
   nextFireTime: 0
   force: 500
   projectileSpawnCount: 1
+  firstEnemy: {fileID: 0}
 --- !u!1 &1359083717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3148,7 @@ Transform:
   m_GameObject: {fileID: 2067174288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.64, y: -2.18, z: 0}
+  m_LocalPosition: {x: 1.31, y: -3.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

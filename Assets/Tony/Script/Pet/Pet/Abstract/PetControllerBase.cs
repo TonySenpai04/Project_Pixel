@@ -17,6 +17,7 @@ namespace Tony
         [SerializeField] protected float nextFireTime;
         [SerializeField] protected float force;
         [SerializeField] protected int projectileSpawnCount=1;
+        [SerializeField] protected Enemy firstEnemy;
         public virtual void Start()
         {
             pet=GetComponent<Pet>();
@@ -31,51 +32,57 @@ namespace Tony
         public virtual void HandleEnemyFound()
         {
             Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)pet.Atk).GetATKR());
-            if (collider2Ds.Length>0)
+
+            if (collider2Ds.Length > 0)
             {
-                Enemy firstEnemy=null;
+                bool enemyFound = false;
+             
                 foreach (var item in collider2Ds)
                 {
                     var enemy = item.GetComponent<Enemy>();
                     if (enemy != null)
                     {
                         firstEnemy = enemy;
+                        enemyFound = true;
                         break;
                     }
-                    
                 }
-                if (firstEnemy != null)
+
+                if (enemyFound)
                 {
-                    LookAtMonster(firstEnemy.transform.position);
-                    Attack();
+                    if (firstEnemy != null)
+                    {
+                        // LookAtMonster(firstEnemy.transform.position);
+                        Attack();
+                    }
                 }
                 else
                 {
-                    this.transform.rotation =Quaternion.EulerAngles(0,0,0);
+                    firstEnemy = null;
                 }
-
-
-
             }
-            
+            else
+            {
+                firstEnemy = null;
+            }
         }
-        public virtual void LookAtMonster(Vector3 pos)
-        {
+
+        //public virtual void LookAtMonster(Vector3 pos)
+        //{
            
-                Vector3 targetDirection = pos - this.transform.position;
-                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-                this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //        Vector3 targetDirection = pos - this.transform.position;
+        //        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        //        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
            
  
-        }
+        //}
         public virtual void Attack()
         {
             nextFireTime += Time.deltaTime;
             if (nextFireTime >= fireRate)
             {
-                
-              
-                projectileSpawn.Spawn(this.pet, projectileSpawnCount);
+               
+                projectileSpawn.Spawn(this.pet, projectileSpawnCount,firstEnemy.transform);
                 nextFireTime = 0f;
 
             }
