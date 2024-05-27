@@ -9,14 +9,11 @@ namespace Tony
         private Transform projectile;
         private Transform poolProjectile;
         private Transform projectilePos;
-        private float force;
-        public SpawnProjectile(Transform projectile, Transform poolProjectile, Transform projectilePos,
-            float force)
+        public SpawnProjectile(Transform projectile, Transform poolProjectile, Transform projectilePos)
         {
             this.projectile = projectile;
             this.poolProjectile = poolProjectile;
             this.projectilePos = projectilePos;
-            this.force = force;
         }
 
         public void Spawn(Pet pet,int count,Transform target)

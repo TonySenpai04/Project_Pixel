@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5762168996042546412}
   - component: {fileID: -8441691405879679825}
   m_Layer: 0
-  m_Name: DraxukoProjectile
+  m_Name: DrazukoProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

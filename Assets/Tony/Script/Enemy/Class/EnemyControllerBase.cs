@@ -1,70 +1,68 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 namespace Tony
 {
-    public abstract class PetControllerBase : MonoBehaviour
+    public abstract class EnemyControllerBase : MonoBehaviour
     {
-        [SerializeField] protected Pet pet;
-        [SerializeField] protected Transform player;
+        [SerializeField] protected Enemy enemy;
+        [SerializeField] protected CharacterStats player;
         [SerializeField] protected Transform projectile;
         [SerializeField] protected Transform projectilePos;
         [SerializeField] protected Transform projectilePool;
-        [SerializeField] protected IPetProjectileSpawn projectileSpawn;
+        [SerializeField] protected IEnemyProjectileSpawn projectileSpawn;
         [SerializeField] protected float fireRate;
         [SerializeField] protected float nextFireTime;
-        [SerializeField] protected int projectileSpawnCount=1;
-        [SerializeField] protected Enemy firstEnemy;
+        [SerializeField] protected int projectileSpawnCount = 1;
         public virtual void Start()
         {
-            pet=GetComponent<Pet>();
-            projectileSpawn = new SpawnProjectile(this.projectile, this.projectilePool,this.projectilePos);
+            enemy = GetComponent<Enemy>();
+            projectileSpawn = new EnemySpawnProjectile(this.projectile, this.projectilePool, this.projectilePos);
             nextFireTime = fireRate;
         }
 
         [System.Obsolete]
         public virtual void Update()
         {
-            HandleEnemyFound();
+            HandlePlayerFound();
         }
 
         [System.Obsolete]
-        public virtual void HandleEnemyFound()
+        public virtual void HandlePlayerFound()
         {
-            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)pet.Atk).GetATKR());
+            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(this.transform.position, ((IATKR)enemy.Atk).GetATKR());
 
             if (collider2Ds.Length > 0)
             {
-                bool enemyFound = false;
-             
+                bool playerFound = false;
+
                 foreach (var item in collider2Ds)
                 {
-                    var enemy = item.GetComponent<Enemy>();
-                    if (enemy != null)
+                    var player = item.GetComponent<CharacterStats>();
+                    if (player != null)
                     {
-                        firstEnemy = enemy;
-                        enemyFound = true;
+                        this.player = player;
+                        playerFound = true;
                         break;
                     }
                 }
 
-                if (enemyFound)
+                if (playerFound)
                 {
-                    if (firstEnemy != null)
+                    if (player != null)
                     {
+                      
                         Attack();
                     }
                 }
                 else
                 {
-                    firstEnemy = null;
+                    player = null;
                 }
             }
             else
             {
-                firstEnemy = null;
+                player = null;
             }
         }
 
@@ -73,8 +71,8 @@ namespace Tony
             nextFireTime += Time.deltaTime;
             if (nextFireTime >= fireRate)
             {
-               
-                projectileSpawn.Spawn(this.pet, projectileSpawnCount,firstEnemy.transform);
+
+                projectileSpawn.Spawn(this.enemy, projectileSpawnCount, player.transform);
                 nextFireTime = 0f;
 
             }

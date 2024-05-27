@@ -18,6 +18,8 @@ namespace Tony
         public static CharacterStats instance;
 
         public IATK Atk { get => atk;  }
+        public IHitPoint HitPoint { get => hitPoint;}
+        public ILevel Level { get => level;  }
 
         void Awake()
         {
@@ -49,6 +51,7 @@ namespace Tony
                 UpdateStatsText();
             }
         }
+ 
         protected void Initialization()
         {
             Data currentData = datas.Find(item => item.Level == currentLevel);
@@ -57,7 +60,7 @@ namespace Tony
             {
                 hitPoint = new HitPoint(currentData.HP, currentData.DEG, currentData.CP);
                 atk = new ATK(currentData.ATK);
-                level = new Level(readCSV, hitPoint, Atk, currentLevel);
+                level = new Level(readCSV, HitPoint, Atk, currentLevel);
 
                 UpdateStatsText();
             }
@@ -65,29 +68,24 @@ namespace Tony
         private void UpdateStatsText()
         {
             statsTxt.text =
-                " HP:" + hitPoint.GetHealth() +
+                " CurrentHP:" + HitPoint.GetCurrentHealth() +
+                " /HP:" + HitPoint.GetHealth() + 
                 "\n Atk:" + Atk.GetAtk() +
-                "\n EXP:" + level.GetCurrentExp() + "/" + level.GetExperience() +
-                "\n Level:" + level.GetLevel() +
-                "\n Dodge:" + ((IDodge)hitPoint).GetDodge() +
-                "\n CP:" + ((ICP)hitPoint).GetCP();
+                "\n EXP:" + Level.GetCurrentExp() + "/" + Level.GetExperience() +
+                "\n Level:" + Level.GetLevel() +
+                "\n Dodge:" + ((IDodge)HitPoint).GetDodge() +
+                "\n CP:" + ((ICP)HitPoint).GetCP();
         }
         private void Update()
         {
             if(Input.GetKeyUp(KeyCode.U))
             {
-                level.GainExperience(1000);
-                this.currentLevel = level.GetLevel();
-                statsTxt.text =
-                    " HP:" + hitPoint.GetHealth()
-                    + "\n Atk:" + atk.GetAtk()
-                    + "\n EXP:" + level.GetCurrentExp() + "/" +level.GetExperience()
-                    + "\n Level:" + level.GetLevel()
-                    + "\n Dodge:" + ((IDodge)hitPoint).GetDodge()
-                    + "\n CP:" + ((ICP)hitPoint).GetCP()
-                    ;
+                Level.GainExperience(1000);
+                this.currentLevel = Level.GetLevel();
+               
 
             }
+            UpdateStatsText();
         }
         void OnDrawGizmos()
         {
