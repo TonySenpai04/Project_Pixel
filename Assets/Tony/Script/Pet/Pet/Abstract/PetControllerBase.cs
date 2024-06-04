@@ -17,10 +17,14 @@ namespace Tony
         [SerializeField] protected float nextFireTime;
         [SerializeField] protected int projectileSpawnCount=1;
         [SerializeField] protected Enemy firstEnemy;
+
+        public Transform Player { get => player;  }
+        public Pet Pet { get => pet; }
+
         public virtual void Start()
         {
             pet=GetComponent<Pet>();
-            projectileSpawn = new SpawnProjectile(this.projectile, this.projectilePool,this.projectilePos);
+            
             nextFireTime = fireRate;
         }
 
@@ -33,7 +37,7 @@ namespace Tony
         [System.Obsolete]
         public virtual void HandleEnemyFound()
         {
-            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)pet.Atk).GetATKR());
+            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)Pet.Atk).GetATKR());
 
             if (collider2Ds.Length > 0)
             {
@@ -74,7 +78,7 @@ namespace Tony
             if (nextFireTime >= fireRate)
             {
                
-                projectileSpawn.Spawn(this.pet, projectileSpawnCount,firstEnemy.transform);
+                projectileSpawn.Spawn(this.Pet, projectileSpawnCount,firstEnemy.transform);
                 nextFireTime = 0f;
 
             }
@@ -90,6 +94,18 @@ namespace Tony
         public virtual void Skill3()
         {
 
+        }
+        public virtual bool IsSkill1()
+        {
+            return false;
+        }
+        public virtual bool IsSkill2()
+        {
+            return false;
+        }
+        public virtual bool IsSkill3()
+        {
+            return false;
         }
     }
 }

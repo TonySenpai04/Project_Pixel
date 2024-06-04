@@ -17,7 +17,7 @@ namespace Tony
         public virtual void Start()
         {
             enemy = GetComponent<Enemy>();
-            projectileSpawn = new EnemySpawnProjectile(this.projectile, this.projectilePool, this.projectilePos);
+           
             nextFireTime = fireRate;
         }
 

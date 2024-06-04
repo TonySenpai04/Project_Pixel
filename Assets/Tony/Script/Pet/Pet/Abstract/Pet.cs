@@ -46,7 +46,7 @@ namespace Tony
             Initialization();
 
         }
-        protected void Initialization()
+        protected virtual void Initialization()
         {
             PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
 
@@ -59,7 +59,8 @@ namespace Tony
                 UpdateStatsText(currentPetData);
             }
         }
-        protected void UpdatePetData()
+        
+        protected virtual void UpdatePetData()
         {
             PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
 
@@ -69,7 +70,12 @@ namespace Tony
                 UpdateStatsText(currentPetData);
             }
         }
-        protected void UpdateStatsText(PetData petData)
+        public virtual PetData CurrentPetData() {
+            PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
+
+            return currentPetData;
+        }
+        protected virtual void UpdateStatsText(PetData petData)
         {
             statsTxt.text =
                 " HP:" + HitPoint.GetHealth() +
