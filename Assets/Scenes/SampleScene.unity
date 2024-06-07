@@ -463,6 +463,21 @@ MonoBehaviour:
   currentLevel: 1
   statsTxt: {fileID: 725942851}
   enemyDatas: []
+  enemyData:
+    EnemyID: 
+    EnemyName: 
+    Level: 0
+    EXPNeed: 0
+    ATK: 0
+    HP: 0
+    ATKR: 0
+    ATKS: 0
+    CR: 0
+    CD: 0
+    CP: 0
+    LevelSkill1: 0
+    LevelSkill2: 0
+    LevelSkill3: 0
 --- !u!114 &279807242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +498,61 @@ MonoBehaviour:
   fireRate: 0.5
   nextFireTime: 0
   projectileSpawnCount: 1
+  skillSets:
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 5
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 10
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 15
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 2
+      coolDown: 0
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  isSkill1: 0
+  isSkill2: 0
+  isSkill3: 0
 --- !u!1 &406052577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &598976071
 Transform:
   m_ObjectHideFlags: 0
@@ -1254,6 +1324,7 @@ MonoBehaviour:
   nextFireTime: 0.5
   projectileSpawnCount: 1
   firstEnemy: {fileID: 0}
+  skillSets: []
   isSkill1: 0
   isSkill2: 0
   isSkill3: 0
@@ -1275,6 +1346,21 @@ MonoBehaviour:
   currentLevel: 1
   statsTxt: {fileID: 1738213033}
   petDatas: []
+  petData:
+    PetID: 
+    PetName: 
+    Level: 0
+    EXPNeed: 0
+    ATK: 0
+    HP: 0
+    ATKR: 0
+    ATKS: 0
+    CR: 0
+    CD: 0
+    CP: 0
+    LevelSkill1: 0
+    LevelSkill2: 0
+    LevelSkill3: 0
 --- !u!114 &598976074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2272,7 +2358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1297734209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,6 +2462,21 @@ MonoBehaviour:
   currentLevel: 1
   statsTxt: {fileID: 1123080453}
   petDatas: []
+  petData:
+    PetID: 
+    PetName: 
+    Level: 0
+    EXPNeed: 0
+    ATK: 0
+    HP: 0
+    ATKR: 0
+    ATKS: 0
+    CR: 0
+    CD: 0
+    CP: 0
+    LevelSkill1: 0
+    LevelSkill2: 0
+    LevelSkill3: 0
 --- !u!114 &1297734213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,6 +2498,61 @@ MonoBehaviour:
   nextFireTime: 0
   projectileSpawnCount: 1
   firstEnemy: {fileID: 0}
+  skillSets:
+  - attributes:
+    - skillDuration: 8
+      additionalStatSkill: 10
+      coolDown: 45
+    - skillDuration: 8
+      additionalStatSkill: 20
+      coolDown: 35
+    - skillDuration: 8
+      additionalStatSkill: 30
+      coolDown: 25
+    - skillDuration: 8
+      additionalStatSkill: 40
+      coolDown: 15
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  isSkill1: 1
+  isSkill2: 0
+  isSkill3: 0
 --- !u!1 &1359083717
 GameObject:
   m_ObjectHideFlags: 0

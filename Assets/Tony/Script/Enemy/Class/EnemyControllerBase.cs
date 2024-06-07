@@ -17,13 +17,14 @@ namespace Tony
         public virtual void Start()
         {
             enemy = GetComponent<Enemy>();
-           
+            fireRate = ((IATKS)enemy.Atk).GetATKS();
             nextFireTime = fireRate;
         }
 
         [System.Obsolete]
         public virtual void Update()
         {
+            fireRate = ((IATKS)enemy.Atk).GetATKS();
             HandlePlayerFound();
         }
 

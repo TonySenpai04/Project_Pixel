@@ -29,11 +29,17 @@ namespace Tony
             readCSV.ReadData(SetData);
 
         }
+        public virtual EnemyData GetCurrentData()
+        {
+            EnemyData currentEnemyData = EnemyDatas.Find(item => item.Level == currentLevel);
+
+            return currentEnemyData;
+        }
         public virtual void SetData()
         {
 
-            List<EnemyData> petDatasClone = readCSV.GetData();
-            this.enemyDatas = petDatasClone;
+            List<EnemyData> enemyDatasClone = readCSV.GetData();
+            this.enemyDatas = enemyDatasClone;
             foreach (var item in EnemyDatas)
             {
                 if (item.EnemyID != "" && item.EnemyName != "")

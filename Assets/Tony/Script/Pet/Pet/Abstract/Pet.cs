@@ -70,7 +70,7 @@ namespace Tony
                 UpdateStatsText(currentPetData);
             }
         }
-        public virtual PetData CurrentPetData() {
+        public virtual PetData GetCurrentData() {
             PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
 
             return currentPetData;

@@ -26,7 +26,7 @@ namespace Tony
                 {
                     int healingChance = 0;
                     float healingPercentage = 0f;
-                    int level= petController.Pet.CurrentPetData().LevelSkill1;
+                    int level= petController.Pet.GetCurrentData().LevelSkill1;
                     switch (level)
                     {
                         case 1:
