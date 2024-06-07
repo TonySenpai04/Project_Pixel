@@ -22,7 +22,7 @@ namespace Tony
         public List<EnemyData> EnemyDatas { get => enemyDatas; }
         public IATK Atk { get => atk; }
         public ILevel Level { get => level; }
-
+        public EnemyData enemyData;
         public virtual void Awake()
         {
             readCSV = new ReadEnemyCSV<EnemyData>(this);

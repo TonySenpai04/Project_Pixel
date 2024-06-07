@@ -23,7 +23,7 @@ namespace Tony
         public List<PetData> PetDatas { get => petDatas; }
         public IATK Atk { get => atk;}
         public ILevel Level { get => level;  }
-
+        public PetData petData;
         public virtual void Awake()
         {
             readCSV = new ReadPetCSV<PetData>(this);

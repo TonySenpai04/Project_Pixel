@@ -16,6 +16,7 @@ namespace Tony
         [SerializeField] protected List<Data> datas;
         [SerializeField] protected int currentLevel=1;
         public static CharacterStats instance;
+        public float Shield;
 
         public IATK Atk { get => atk;  }
         public IHitPoint HitPoint { get => hitPoint;}
