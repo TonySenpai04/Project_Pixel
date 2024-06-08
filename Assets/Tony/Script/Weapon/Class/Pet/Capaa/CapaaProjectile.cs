@@ -22,7 +22,7 @@ namespace Tony
                 
             if (enemy != null)
             {
-                if (petController.IsSkill1())
+                if (petController.SkillController.IsSkill1())
                 {
                     int healingChance = 0;
                     float healingPercentage = 0f;

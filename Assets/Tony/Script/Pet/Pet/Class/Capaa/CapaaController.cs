@@ -9,9 +9,6 @@ namespace Tony
     {
 
         public List<SkillData.SkillSet> skillSets;
-        [SerializeField] private bool isSkill1;
-        [SerializeField] private bool isSkill2;
-        [SerializeField] private bool isSkill3;
 
         public override void Start()
         {
@@ -19,33 +16,26 @@ namespace Tony
             projectileSpawn = new SpawnCapaaProjectile(this.projectile, this.projectilePool, this.projectilePos);
 
         }
-        public override async void Skill1()
+        public override void Skill1()
         {
-            isSkill1=true;
-            await Task.Delay((int)skillSets[0].currentSkillAttributes.skillDuration * 1000);
-            isSkill1 = false;
+            SetSkillAttribute();
+            skillController.Skill1(this.skillSets[0].currentSkillAttributes);
 
         }
-        public override async void Skill2()
+
+        public override void Skill2()
         {
-            await Task.Delay((int)skillSets[0].currentSkillAttributes.skillDuration * 1000);
+            SetSkillAttribute();
+            skillController.Skill1(this.skillSets[1].currentSkillAttributes);
+
         }
+
         public override void Skill3()
         {
+            SetSkillAttribute();
+            skillController.Skill1(this.skillSets[2].currentSkillAttributes);
+        }
 
-        }
-        public override bool IsSkill1()
-        {
-            return isSkill1;
-        }
-        public override bool IsSkill2()
-        {
-            return isSkill2;
-        }
-        public override bool IsSkill3()
-        {
-            return isSkill3;
-        }
         public void SetSkillAttribute()
         {
             int skill1 = pet.GetCurrentData().LevelSkill1;

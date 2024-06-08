@@ -15,11 +15,14 @@ namespace Tony
         [SerializeField] protected IPetProjectileSpawn projectileSpawn;
         [SerializeField] protected float fireRate;
         [SerializeField] protected float nextFireTime;
-        [SerializeField] protected int projectileSpawnCount=1;
+        [SerializeField] protected int projectileSpawnCount = 1;
         [SerializeField] protected Enemy firstEnemy;
+        [SerializeField] protected SkillControllerBase skillController;
 
         public Transform Player { get => player;  }
+        public SkillControllerBase SkillController { get => skillController; }
         public Pet Pet { get => pet; }
+        public int ProjectileSpawnCount { get => projectileSpawnCount; set => projectileSpawnCount = value; }
 
         public virtual void Start()
         {
@@ -94,18 +97,6 @@ namespace Tony
         public virtual void Skill3()
         {
 
-        }
-        public virtual bool IsSkill1()
-        {
-            return false;
-        }
-        public virtual bool IsSkill2()
-        {
-            return false;
-        }
-        public virtual bool IsSkill3()
-        {
-            return false;
         }
     }
 }
