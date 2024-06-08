@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 namespace Tony
 {
-    public class HitPoint : IHitPoint,IDodge,ICP
+    public class HitPoint : IHitPoint,IDodge,ICP, IDamReduction
     {
         private float health;
         private float currentHealth;
         private float dodge;
         private float CP;
+        private float damageReduction=0;
         public HitPoint(float health, float dodge, float cP)
         {
             this.health = health;
@@ -17,7 +18,13 @@ namespace Tony
 
         public void TakeDamage(int damage)
         {
-            currentHealth -= damage;
+            int reducedDamage;
+            if (damageReduction < damage)
+                reducedDamage = damage - (int)damageReduction;
+            else
+                reducedDamage =1;
+            currentHealth -= reducedDamage;
+            Debug.Log(reducedDamage);
             if (currentHealth < 0)
                 currentHealth = 0;
         }
@@ -63,6 +70,11 @@ namespace Tony
         public void SetCP(float value)
         {
             this.CP= value;
+        }
+
+        public void SetDamReduction(float damReduction)
+        {
+            this.damageReduction = damReduction;
         }
     }
 

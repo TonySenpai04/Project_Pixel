@@ -27,13 +27,14 @@ namespace Tony
         public virtual void Start()
         {
             pet=GetComponent<Pet>();
-            
+            fireRate = ((IATKS)pet.Atk).GetATKS();
             nextFireTime = fireRate;
         }
 
         [System.Obsolete]
         public virtual void Update()
         {
+            fireRate = ((IATKS)pet.Atk).GetATKS();
             HandleEnemyFound();
         }
 

@@ -51,13 +51,14 @@ namespace Tony
                     {
                         int healingAmount = (int)(dam * healingPercentage);
                         petController.Player.GetComponent<CharacterStats>().HitPoint.Heal(healingAmount);
+                        Debug.Log("a");
                     }
                     
                   
 
                 }
                 gameObject.SetActive(false);
-                enemy.TakeDamage(this.dam);
+                enemy.HitPoint.TakeDamage((int)this.dam);
             }
 
         }

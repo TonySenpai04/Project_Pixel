@@ -14,15 +14,9 @@ namespace tony
             if (!isAbility1Cooldown)
             {
                 Ability1Input();
-                float cr = ((ICR)pet.Atk).GetCR();
-                float crBuff = cr + skillAttributes.additionalStatSkill;
-                ((ICR)pet.Atk).SetCR(crBuff);
-                Debug.Log(((ICR)pet.Atk).GetCR());
                 isSkill1 = true;
                 await Task.Delay((int)skillAttributes.skillDuration * 1000);
-                ((ICR)pet.Atk).SetCR(cr);
                 isSkill1 = false;
-                Debug.Log(((ICR)pet.Atk).GetCR());
             }
 
 
@@ -31,13 +25,13 @@ namespace tony
         {
             if (!isAbility2Cooldown)
             {
-                float characterDmg = CharacterStats.instance.Atk.GetAtk();
-                float dmgBuff = skillAttributes.additionalStatSkill;
-                float dmg = pet.Atk.GetAtk();
-                pet.Atk.SetAtk(dmgBuff * characterDmg + dmg);
+                Ability2Input();
+                IHitPoint hitPoint = CharacterStats.instance.HitPoint;
+                ((IDamReduction)hitPoint).SetDamReduction((skillAttributes.additionalStatSkill * pet.Atk.GetAtk() )/100+
+                    CharacterStats.instance.Atk.GetAtk());
                 isSkill2 = true;
                 await Task.Delay((int)skillAttributes.skillDuration * 1000);
-                pet.Atk.SetAtk(dmg);
+                ((IDamReduction)hitPoint).SetDamReduction(0);
                 isSkill2 = false;
             }
 
@@ -47,10 +41,12 @@ namespace tony
         {
             if (!isAbility3Cooldown)
             {
-                GetComponent<PetControllerBase>().ProjectileSpawnCount *= (int)skillAttributes.additionalStatSkill;
+                Ability3Input();
+                IHitPoint hitPoint = CharacterStats.instance.HitPoint;
+                ((IDamReduction)hitPoint).SetDamReduction(skillAttributes.additionalStatSkill * pet.Atk.GetAtk()/100);
                 isSkill3 = true;
                 await Task.Delay((int)skillAttributes.skillDuration * 1000);
-                GetComponent<PetControllerBase>().ProjectileSpawnCount = 1;
+                ((IDamReduction)hitPoint).SetDamReduction(0);
                 isSkill3 = false;
             }
 

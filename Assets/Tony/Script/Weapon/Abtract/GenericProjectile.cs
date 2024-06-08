@@ -52,7 +52,7 @@ namespace Tony
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(this.dam);
+                enemy.HitPoint.TakeDamage((int)this.dam);
                 gameObject.SetActive(false);
 
             }

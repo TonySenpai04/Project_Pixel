@@ -30,14 +30,14 @@ public class DrazukoController : PetControllerBase
     public override  void Skill2()
     {
         SetSkillAttribute();
-        skillController.Skill1(this.skillSets[1].currentSkillAttributes);
+        skillController.Skill2(this.skillSets[1].currentSkillAttributes);
 
     }
 
     public override  void Skill3()
     {
         SetSkillAttribute();
-        skillController.Skill1(this.skillSets[2].currentSkillAttributes);
+        skillController.Skill3(this.skillSets[2].currentSkillAttributes);
     }
     public void SetSkillAttribute()
     {
@@ -50,10 +50,6 @@ public class DrazukoController : PetControllerBase
         skillSets[2].SetCurrentSkillAttributes(skillSets[2].attributes[skill3]);
         skillController.SetAbilityCooldown(skillSets[0].attributes[skill1].coolDown,
         skillSets[1].attributes[skill2].coolDown, skillSets[2].attributes[skill3].coolDown);
-
-
-
-
     }
 
 }

@@ -101,9 +101,5 @@ namespace Tony
 
             }
         }
-        public void TakeDamage(float dam)
-        {
-            Debug.Log(dam);
-        }
     }
 }

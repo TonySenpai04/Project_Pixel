@@ -14,6 +14,10 @@ namespace Tony
         [SerializeField] protected float fireRate;
         [SerializeField] protected float nextFireTime;
         [SerializeField] protected int projectileSpawnCount = 1;
+        [SerializeField] protected SkillControllerBase skillController;
+
+        public SkillControllerBase SkillController { get => skillController;  }
+
         public virtual void Start()
         {
             enemy = GetComponent<Enemy>();

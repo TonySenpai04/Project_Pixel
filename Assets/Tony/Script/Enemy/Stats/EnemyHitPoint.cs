@@ -17,7 +17,9 @@ namespace Tony
         }
         public void TakeDamage(int damage)
         {
-
+            currentHealth -= damage;
+            if (currentHealth < 0)
+                currentHealth = 0;
         }
 
         public void Heal(int amount)

@@ -31,6 +31,7 @@ namespace Tony
         {
             if (!isAbility2Cooldown)
             {
+                Ability2Input();
                 float characterDmg = CharacterStats.instance.Atk.GetAtk();
                 float dmgBuff = skillAttributes.additionalStatSkill;
                 float dmg = pet.Atk.GetAtk();
@@ -47,6 +48,7 @@ namespace Tony
         {
             if (!isAbility3Cooldown)
             {
+                Ability3Input();
                 GetComponent<PetControllerBase>().ProjectileSpawnCount *= (int)skillAttributes.additionalStatSkill;
                 isSkill3 = true;
                 await Task.Delay((int)skillAttributes.skillDuration * 1000);
