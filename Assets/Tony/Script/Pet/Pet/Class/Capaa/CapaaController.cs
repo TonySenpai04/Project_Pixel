@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
-namespace Tony
+using Tony.Projectile;
+using Tony.Skill;
+
+namespace Tony.Pet
 {
     public class CapaaController : PetControllerBase
     {

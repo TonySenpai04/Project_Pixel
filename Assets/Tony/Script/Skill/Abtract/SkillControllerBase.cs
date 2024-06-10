@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using static Tony.SkillData;
-namespace Tony {
+using static Tony.Skill.SkillData;
+namespace Tony.Skill {
     public abstract class SkillControllerBase : MonoBehaviour
     {
         protected float ability1Cooldown = 5;

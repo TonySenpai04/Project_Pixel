@@ -26,31 +26,43 @@ namespace Tony
 
         public override void MoveLeft()
         {
-            move.Move(-moveSpeed, rb.velocity.y);
-            if (facingRight)
+            if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
             {
-                Flip();
+                move.Move(-moveSpeed, rb.velocity.y);
+                if (facingRight)
+                {
+                    Flip();
+                }
             }
         }
 
 
         public override void MoveRight()
         {
-            move.Move(moveSpeed,rb.velocity.y);
-            if (!facingRight)
+            if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
             {
-                Flip();
+                move.Move(moveSpeed, rb.velocity.y);
+                if (!facingRight)
+                {
+                    Flip();
+                }
             }
         }
 
         public override void Jump()
         {
-            jump.Jump(jumpingPower);
+            if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
+            {
+                jump.Jump(jumpingPower);
+            }
         }
 
         public override void MoveDown()
         {
-            move.Move(rb.velocity.x ,- moveSpeed);
+            if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
+            {
+                move.Move(rb.velocity.x, -moveSpeed);
+            }
         }
 
         public override void StopMovement()
@@ -60,7 +72,10 @@ namespace Tony
 
         public override void MoveUp()
         {
-            move.Move(rb.velocity.x,moveSpeed);
+            if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
+            {
+                move.Move(rb.velocity.x, moveSpeed);
+            }
         }
         private void Flip()
         {

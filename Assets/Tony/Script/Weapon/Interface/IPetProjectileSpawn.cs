@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using Tony.Pet;
 
-namespace Tony
+namespace Tony.Projectile
 {
     public interface IPetProjectileSpawn
 
     {
-        void Spawn(Pet pet,int count,Transform target);
+        void Spawn(PetBase pet,int count,Transform target);
     }
 }

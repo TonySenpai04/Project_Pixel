@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tony.Item;
+using Tony.Projectile;
+using Tony.Skill;
 using UnityEngine;
-namespace Tony
+namespace Tony.Enemy
 {
     public abstract class EnemyControllerBase : MonoBehaviour
     {
-        [SerializeField] protected Enemy enemy;
+        [SerializeField] protected EnemyBase enemy;
         [SerializeField] protected CharacterStats player;
         [SerializeField] protected Transform projectile;
         [SerializeField] protected Transform projectilePos;
@@ -20,7 +23,7 @@ namespace Tony
 
         public virtual void Start()
         {
-            enemy = GetComponent<Enemy>();
+            enemy = GetComponent<EnemyBase>();
             fireRate = ((IATKS)enemy.Atk).GetATKS();
             nextFireTime = fireRate;
         }
@@ -30,6 +33,7 @@ namespace Tony
         {
             fireRate = ((IATKS)enemy.Atk).GetATKS();
             HandlePlayerFound();
+            OnDeath();
         }
 
         [System.Obsolete]
@@ -54,9 +58,8 @@ namespace Tony
 
                 if (playerFound)
                 {
-                    if (player != null)
+                    if (player != null && player.HitPoint.GetCurrentHealth()>0)
                     {
-                      
                         Attack();
                     }
                 }
@@ -93,6 +96,14 @@ namespace Tony
         public virtual void Skill3()
         {
 
+        }
+        public virtual void OnDeath()
+        {
+            if (enemy.HitPoint.GetCurrentHealth() <= 0)
+            {
+                GetComponent<DropItem>().CreateItem(this.transform.position);
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }

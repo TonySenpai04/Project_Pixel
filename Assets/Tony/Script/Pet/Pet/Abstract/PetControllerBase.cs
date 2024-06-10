@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
-namespace Tony
+using Tony.Enemy;
+using Tony.Projectile;
+using Tony.Skill;
+
+namespace Tony.Pet
 {
     public abstract class PetControllerBase : MonoBehaviour
     {
-        [SerializeField] protected Pet pet;
+        [SerializeField] protected PetBase pet;
         [SerializeField] protected Transform player;
         [SerializeField] protected Transform projectile;
         [SerializeField] protected Transform projectilePos;
@@ -16,17 +20,17 @@ namespace Tony
         [SerializeField] protected float fireRate;
         [SerializeField] protected float nextFireTime;
         [SerializeField] protected int projectileSpawnCount = 1;
-        [SerializeField] protected Enemy firstEnemy;
+        [SerializeField] protected EnemyBase firstEnemy;
         [SerializeField] protected SkillControllerBase skillController;
 
         public Transform Player { get => player;  }
         public SkillControllerBase SkillController { get => skillController; }
-        public Pet Pet { get => pet; }
+        public PetBase Pet { get => pet; }
         public int ProjectileSpawnCount { get => projectileSpawnCount; set => projectileSpawnCount = value; }
 
         public virtual void Start()
         {
-            pet=GetComponent<Pet>();
+            pet=GetComponent<PetBase>();
             fireRate = ((IATKS)pet.Atk).GetATKS();
             nextFireTime = fireRate;
         }
@@ -49,7 +53,7 @@ namespace Tony
              
                 foreach (var item in collider2Ds)
                 {
-                    var enemy = item.GetComponent<Enemy>();
+                    var enemy = item.GetComponent<EnemyBase>();
                     if (enemy != null)
                     {
                         firstEnemy = enemy;
@@ -60,7 +64,8 @@ namespace Tony
 
                 if (enemyFound)
                 {
-                    if (firstEnemy != null)
+                    if (firstEnemy != null && firstEnemy.HitPoint.GetCurrentHealth()>0
+                        && CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
                     {
                         Attack();
                     }
@@ -82,7 +87,7 @@ namespace Tony
             if (nextFireTime >= fireRate)
             {
                
-                projectileSpawn.Spawn(this.Pet, projectileSpawnCount,firstEnemy.transform);
+                projectileSpawn.Spawn(this.pet, projectileSpawnCount,firstEnemy.transform);
                 nextFireTime = 0f;
 
             }

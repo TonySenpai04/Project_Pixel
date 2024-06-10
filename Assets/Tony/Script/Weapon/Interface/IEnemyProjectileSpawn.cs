@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-
-namespace Tony
+using Tony.Enemy;
+namespace Tony.Projectile
 {
     public interface IEnemyProjectileSpawn
     {
-        void Spawn(Enemy enemy, int count, Transform target);
+        void Spawn(EnemyBase enemy, int count, Transform target);
     }
 }

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+using Tony.Pet;
+namespace Tony.Projectile
 {
     public class SpawnCapaaProjectile : IPetProjectileSpawn
     {
@@ -15,7 +16,7 @@ namespace Tony
             this.projectilePos = projectilePos;
         }
 
-        public void Spawn(Pet pet, int count, Transform target)
+        public void Spawn(PetBase pet, int count, Transform target)
         {
             if (this.projectile == null)
                 return;

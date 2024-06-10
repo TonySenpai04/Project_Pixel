@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+namespace Tony.Pet
 {
-    public class Drazuko : Pet
+    public class Drazuko : PetBase
     {
         
     }

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using static Tony.SkillData;
+using Tony.Pet;
+using static Tony.Skill.SkillData;
 
-namespace Tony
+namespace Tony.Skill
 {
     public class DrazukoSkillController : SkillControllerBase
     {
-        [SerializeField] protected Pet pet;
+        [SerializeField] protected PetBase pet;
         public override async void Skill1(SkillAttributes skillAttributes)
         {
-            if (!isAbility1Cooldown)
+            if (!isAbility1Cooldown && pet.GetCurrentData().LevelSkill1 > 0)
             {
                 Ability1Input();
                 float cr = ((ICR)pet.Atk).GetCR();
@@ -29,7 +30,7 @@ namespace Tony
         }
         public override async void Skill2(SkillAttributes skillAttributes)
         {
-            if (!isAbility2Cooldown)
+            if (!isAbility2Cooldown && pet.GetCurrentData().LevelSkill2 > 0)
             {
                 Ability2Input();
                 float characterDmg = CharacterStats.instance.Atk.GetAtk();
@@ -46,7 +47,7 @@ namespace Tony
 
         public override async void Skill3(SkillAttributes skillAttributes)
         {
-            if (!isAbility3Cooldown)
+            if (!isAbility3Cooldown && pet.GetCurrentData().LevelSkill3 > 0)
             {
                 Ability3Input();
                 GetComponent<PetControllerBase>().ProjectileSpawnCount *= (int)skillAttributes.additionalStatSkill;

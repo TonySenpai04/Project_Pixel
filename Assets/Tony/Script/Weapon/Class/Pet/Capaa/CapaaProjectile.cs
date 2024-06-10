@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+using Tony.Pet;
+using Tony.Enemy;
+namespace Tony.Projectile
 {
     public class CapaaProjectile : GenericProjectile
     {
@@ -17,7 +19,7 @@ namespace Tony
         [System.Obsolete]
         public override void OnTriggerEnter2D(Collider2D collision)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
            
                 
             if (enemy != null)

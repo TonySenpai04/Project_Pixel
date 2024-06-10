@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+namespace Tony.Pet
 {
-    public class Capaa : Pet
+    public class Capaa : PetBase
     {
         
     }

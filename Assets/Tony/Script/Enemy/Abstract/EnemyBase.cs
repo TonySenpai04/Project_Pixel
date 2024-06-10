@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Tony;
 using UnityEngine;
-namespace Tony
+namespace Tony.Enemy
 {
-    public abstract class Enemy : MonoBehaviour
+    public abstract class EnemyBase : MonoBehaviour
     {
         [SerializeField] protected string enemyID;
         [SerializeField] protected string enemyName;

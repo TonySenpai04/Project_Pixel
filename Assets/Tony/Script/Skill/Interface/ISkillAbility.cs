@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace Tony
+namespace Tony.Skill
 {
     public interface ISkillAbility
     {

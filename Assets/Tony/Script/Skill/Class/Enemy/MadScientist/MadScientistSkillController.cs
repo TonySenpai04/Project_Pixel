@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using static Tony.SkillData;
+using Tony.Enemy;
+using static Tony.Skill.SkillData;
 
-namespace Tony
+namespace Tony.Skill
 {
     public class MadScientistSkillController : SkillControllerBase
     {
-        [SerializeField] private Enemy enemy;
+        [SerializeField] private EnemyBase enemy;
        
         public override  void Skill1(SkillAttributes skillAttributes)
         {
-            if (!isAbility1Cooldown)
+            if (!isAbility1Cooldown && enemy.GetCurrentData().LevelSkill1>0)
             {
                 Ability1Input();
                 enemy.HitPoint.Heal((int)(enemy.HitPoint.GetHealth() * skillAttributes.additionalStatSkill));
@@ -21,7 +22,7 @@ namespace Tony
         }
         public override async void Skill2(SkillAttributes skillAttributes)
         {
-            if (!isAbility2Cooldown)
+            if (!isAbility2Cooldown && enemy.GetCurrentData().LevelSkill2 > 0)
             {
                 Ability2Input();
 
@@ -36,10 +37,10 @@ namespace Tony
         }
         public override void Skill3(SkillAttributes skillAttributes)
         {
-            if (!isAbility3Cooldown)
+            if (!isAbility3Cooldown && enemy.GetCurrentData().LevelSkill3 > 0)
             {
                 Ability3Input();
-                Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(this.transform.position, ((IATKR)enemy.Atk).GetATKR());
+                Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(this.enemy.transform.position, ((IATKR)enemy.Atk).GetATKR());
 
                 if (collider2Ds.Length > 0)
                 {

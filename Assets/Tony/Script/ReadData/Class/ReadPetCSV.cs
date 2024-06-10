@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tony.Pet;
 using UnityEngine;
 
 namespace Tony
@@ -26,10 +27,10 @@ namespace Tony
     }
     public class ReadPetCSV<T> : IReadCSV<PetData>
     {
-        private Pet pet;
+        private PetBase pet;
         private List<PetData> datas = new List<PetData>();
         private TextAsset textAsset;
-        public ReadPetCSV(Pet pet)
+        public ReadPetCSV(PetBase pet)
         {
             this.pet=pet;
             this.textAsset = pet.CSVFIle;

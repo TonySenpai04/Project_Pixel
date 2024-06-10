@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tony
+namespace Tony.Skill
 {
     [Serializable]
     public class SkillData

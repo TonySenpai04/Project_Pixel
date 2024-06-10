@@ -4,8 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using Tony.Projectile;
 using UnityEngine;
-namespace Tony
+using Tony.Skill;
+
+namespace Tony.Enemy
 {
 
     public class MadScientistController : EnemyControllerBase
@@ -42,7 +45,7 @@ namespace Tony
 
                 if (playerFound)
                 {
-                    if (player != null)
+                    if (player != null && player.HitPoint.GetCurrentHealth() > 0)
                     {
 
                         Attack();

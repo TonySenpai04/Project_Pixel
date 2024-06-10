@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+using Tony.Enemy;
+namespace Tony.Projectile
 {
     public class EnemySpawnProjectile : IEnemyProjectileSpawn
     {
@@ -15,7 +16,7 @@ namespace Tony
             this.projectilePos = projectilePos;
         }
 
-        public void Spawn(Enemy enemy, int count, Transform target)
+        public void Spawn(EnemyBase enemy, int count, Transform target)
         {
             if (this.projectile == null)
                 return;
@@ -34,8 +35,6 @@ namespace Tony
                     projectileIns.GetComponent<GenericProjectile>().SetDam(enemy.Atk.GetAtk());
                 }
                 projectileIns.GetComponent<GenericProjectile>().SetTarget(target);
-                //var projRb = projectileIns.GetComponent<Rigidbody2D>();
-                //projRb.AddForce(Vector2.right * force, ForceMode2D.Force);
             }
         }
     }

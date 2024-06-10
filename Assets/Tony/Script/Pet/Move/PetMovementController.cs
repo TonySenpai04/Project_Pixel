@@ -1,6 +1,6 @@
 ﻿
 using UnityEngine;
-namespace Tony
+namespace Tony.Pet
 {
 
     public class PetMovementController : MonoBehaviour

@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Tony;
+using Tony.Pet;
 using UnityEngine;
-using static Tony.SkillData;
-namespace tony
+using static Tony.Skill.SkillData;
+namespace Tony.Skill
 {
     public class CapaaSkillController : SkillControllerBase
     {
-        [SerializeField] protected Pet pet;
+        [SerializeField] protected PetBase pet;
         public override async void Skill1(SkillAttributes skillAttributes)
         {
-            if (!isAbility1Cooldown)
+            if (!isAbility1Cooldown && pet.GetCurrentData().LevelSkill1 > 0 )
             {
                 Ability1Input();
                 isSkill1 = true;
@@ -23,7 +23,7 @@ namespace tony
         }
         public override async void Skill2(SkillAttributes skillAttributes)
         {
-            if (!isAbility2Cooldown)
+            if (!isAbility2Cooldown && pet.GetCurrentData().LevelSkill2 > 0)
             {
                 Ability2Input();
                 IHitPoint hitPoint = CharacterStats.instance.HitPoint;
@@ -39,7 +39,7 @@ namespace tony
 
         public override async void Skill3(SkillAttributes skillAttributes)
         {
-            if (!isAbility3Cooldown)
+            if (!isAbility3Cooldown && pet.GetCurrentData().LevelSkill3 > 0)
             {
                 Ability3Input();
                 IHitPoint hitPoint = CharacterStats.instance.HitPoint;

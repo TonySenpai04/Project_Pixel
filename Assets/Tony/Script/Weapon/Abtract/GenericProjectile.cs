@@ -1,8 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using Tony.Enemy;
 
-namespace Tony
+namespace Tony.Projectile
 {
     public abstract class GenericProjectile : MonoBehaviour
     {
@@ -33,12 +34,16 @@ namespace Tony
 
         void FixedUpdate()
         {
-            if (target != null)
+            if (target != null && dam>0)
             {
                 Vector2 direction = (Vector2)target.position - rb.position;
                 direction.Normalize();
                 Vector2 newVelocity = Vector2.Lerp(rb.velocity, direction * speed, homingStrength);
                 rb.velocity = newVelocity;
+                if (Vector2.Distance(this.transform.position, target.position) <= 0.01f)
+                {
+                    gameObject.SetActive(false); 
+                }
             }
             else
             {
@@ -49,7 +54,7 @@ namespace Tony
         [Obsolete]
         public virtual void OnTriggerEnter2D(Collider2D collision)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
             if (enemy != null)
             {
                 enemy.HitPoint.TakeDamage((int)this.dam);

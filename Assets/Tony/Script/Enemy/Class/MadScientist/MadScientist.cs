@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+namespace Tony.Enemy
 {
-    public class MadScientist : Enemy
+    public class MadScientist : EnemyBase
     {
         
     }

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tony
+namespace Tony.Enemy
 {
     [Serializable]
     public class EnemyData
@@ -25,10 +25,10 @@ namespace Tony
     }
     public class ReadEnemyCSV<T> : IReadCSV<EnemyData>
     {
-        private Enemy enemy;
+        private EnemyBase enemy;
         private List<EnemyData> datas = new List<EnemyData>();
         private TextAsset textAsset;
-        public ReadEnemyCSV(Enemy enemy)
+        public ReadEnemyCSV(EnemyBase enemy)
         {
             this.enemy = enemy;
             this.textAsset = enemy.CSVFIle;

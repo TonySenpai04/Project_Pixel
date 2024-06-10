@@ -14,20 +14,37 @@ namespace Tony
             currentHealth = health;
             this.dodge = dodge;
             this.CP = cP;
+            damageReduction = 0;
         }
 
         public void TakeDamage(int damage)
         {
             int reducedDamage;
+
+ 
             if (damageReduction < damage)
+            {
                 reducedDamage = damage - (int)damageReduction;
+            }
             else
-                reducedDamage =1;
+            {
+                reducedDamage = 1; 
+            }
+
+
             currentHealth -= reducedDamage;
-            Debug.Log(reducedDamage);
+
+            Debug.Log("Incoming Damage: " + damage);
+            Debug.Log("Damage Reduction: " + damageReduction);
+            Debug.Log("Calculated Reduced Damage: " + reducedDamage);
+
+
             if (currentHealth < 0)
+            {
                 currentHealth = 0;
+            }
         }
+
 
         public void Heal(int amount)
         {

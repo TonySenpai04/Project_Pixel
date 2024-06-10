@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 
 
-namespace Tony
+namespace Tony.Pet
 {
-    public abstract class Pet : MonoBehaviour
+    public abstract class PetBase : MonoBehaviour
     {
         [SerializeField] protected string petID;
         [SerializeField] protected string petName;
