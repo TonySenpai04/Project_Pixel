@@ -5,17 +5,16 @@ using UnityEngine;
 
 namespace Tony.Item
 {
-    public class DropItem : MonoBehaviour
+    public abstract class DropItem : MonoBehaviour
     {
         [SerializeField] private GameObject ItemDrop;
         [SerializeField] private List<ItemSO> lootList = new List<ItemSO>();
-        public static DropItem Instance;
-        void Start()
+        public virtual void Start()
         {
-            Instance = this;
+            
         }
 
-        public ItemSO GetDropItem()
+        public virtual ItemSO GetDropItem()
         {
             int RanDom = Random.Range(1, 101);
             List<ItemSO> itemList = new List<ItemSO>();
@@ -35,7 +34,7 @@ namespace Tony.Item
             }
             return null;
         }
-        public void CreateItem(Vector3 spawnPosition)
+        public  virtual void CreateItem(Vector3 spawnPosition)
         {
             ItemSO dropitem = GetDropItem();
             if (dropitem != null)
