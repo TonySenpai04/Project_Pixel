@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 0d9eccd08a3b60943b5d5e1963c4a743
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: cc34d0f3dc257a442819830b408c5322, type: 3}
+  missingFiles:
+  - ../Pixel/WorldMap/map 1/Grass1.png
+  errors:
+  - 'Missing texture asset: ../Pixel/WorldMap/map 1/Grass1.png'
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 13
+  pixelsPerUnit: 32
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  useSpriteAtlas: 1
+  atlasWidth: 2048
+  atlasHeight: 2048
