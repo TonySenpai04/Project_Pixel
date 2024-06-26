@@ -18,7 +18,7 @@ namespace Tony
         public override void Start()
         {
             rb = GetComponentInParent<Rigidbody2D>();
-            move = new Movement(this.rb);
+            move = new Movement(this.rb,this.groundCheck,this.groundLayer);
             jump = new Jump( this.rb, this.groundCheck, this.groundLayer);
             player = rb.transform;
         }
@@ -74,7 +74,11 @@ namespace Tony
         {
             if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
             {
-                move.Move(rb.velocity.x, moveSpeed);
+                if (((IGrounded)move).IsGrounded())
+                {
+                    move.Move(rb.velocity.x, moveSpeed);
+
+                }
             }
         }
         private void Flip()
