@@ -14,7 +14,8 @@ namespace Tony
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private float jumpingPower = 16f;
         private bool facingRight = true;
-       
+
+
         public override void Start()
         {
             rb = GetComponentInParent<Rigidbody2D>();
@@ -23,7 +24,7 @@ namespace Tony
             player = rb.transform;
         }
 
-
+      
         public override void MoveLeft()
         {
             if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)

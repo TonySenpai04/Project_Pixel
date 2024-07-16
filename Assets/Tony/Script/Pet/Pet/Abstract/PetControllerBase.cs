@@ -40,8 +40,9 @@ namespace Tony.Pet
         {
             fireRate = ((IATKS)pet.Atk).GetATKS();
             HandleEnemyFound();
+      
         }
-
+       
         [System.Obsolete]
         public virtual void HandleEnemyFound()
         {

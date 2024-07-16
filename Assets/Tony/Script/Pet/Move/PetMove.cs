@@ -17,9 +17,24 @@ namespace Tony
         }
         public void Move(float x, float y)
         {
+            //Vector3 targetPosition;
+
+            //targetPosition = player.position + new Vector3(-x, y, 0);
+
+            //pet.transform.position = Vector3.Lerp(pet.transform.position, targetPosition, moveSpeed * Time.deltaTime);
             Vector3 targetPosition;
 
-            targetPosition = player.position + new Vector3(-x, y, 0);
+            // Adjust the offset based on the player's facing direction
+            if (player.localScale.x > 0)
+            {
+                // Player is facing right
+                targetPosition = player.position + new Vector3(-x, y, 0);
+            }
+            else
+            {
+                // Player is facing left
+                targetPosition = player.position + new Vector3(x, y, 0);
+            }
 
             pet.transform.position = Vector3.Lerp(pet.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
