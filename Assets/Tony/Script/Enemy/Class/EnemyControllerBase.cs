@@ -18,11 +18,13 @@ namespace Tony.Enemy
         [SerializeField] protected float nextFireTime;
         [SerializeField] protected int projectileSpawnCount = 1;
         [SerializeField] protected SkillControllerBase skillController;
+        [SerializeField] protected EnemyAnimationControllerBase enemyAnimationController;
 
         public SkillControllerBase SkillController { get => skillController;  }
 
         public virtual void Start()
         {
+            enemyAnimationController = GetComponent<EnemyAnimationControllerBase>();
             enemy = GetComponent<EnemyBase>();
             fireRate = ((IATKS)enemy.Atk).GetATKS();
             nextFireTime = fireRate;
@@ -79,7 +81,7 @@ namespace Tony.Enemy
             nextFireTime += Time.deltaTime;
             if (nextFireTime >= fireRate)
             {
-
+                enemyAnimationController.HitEnemytAnim();
                 projectileSpawn.Spawn(this.enemy, projectileSpawnCount, player.transform);
                 nextFireTime = 0f;
 
