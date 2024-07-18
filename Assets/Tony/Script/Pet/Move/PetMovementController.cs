@@ -11,9 +11,11 @@ namespace Tony.Pet
         [SerializeField] protected float moveSpeed = 3.0f;
         [SerializeField] protected bool isFlying = false;
         [SerializeField] protected bool isFacingRight = true;
+        [SerializeField] protected PetAnimationControllerBase petAnimationControllerBase;
         protected IMove petMove;
         private void Start()
         {
+            petAnimationControllerBase = GetComponent<PetAnimationControllerBase>();
             petMove = new PetMove(this.gameObject, this.player, this.moveSpeed);
         }
 

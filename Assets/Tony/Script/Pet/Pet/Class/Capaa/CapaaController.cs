@@ -23,20 +23,21 @@ namespace Tony.Pet
         {
             SetSkillAttribute();
             skillController.Skill1(this.skillSets[0].currentSkillAttributes);
-
+            petAnimationController.Skill1PetAnim();
         }
 
         public override void Skill2()
         {
             SetSkillAttribute();
             skillController.Skill2(this.skillSets[1].currentSkillAttributes);
-
+            petAnimationController.Skill2PetAnim();
         }
 
         public override void Skill3()
         {
             SetSkillAttribute();
             skillController.Skill3(this.skillSets[2].currentSkillAttributes);
+            petAnimationController.Skill3PetAnim();
         }
 
         public void SetSkillAttribute()

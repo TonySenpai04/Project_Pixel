@@ -6,6 +6,7 @@ using UnityEngine;
 using Tony.Enemy;
 using Tony.Projectile;
 using Tony.Skill;
+using UnityEditor.Experimental.GraphView;
 
 namespace Tony.Pet
 {
@@ -22,14 +23,18 @@ namespace Tony.Pet
         [SerializeField] protected int projectileSpawnCount = 1;
         [SerializeField] protected EnemyBase firstEnemy;
         [SerializeField] protected SkillControllerBase skillController;
+        [SerializeField] protected PetAnimationControllerBase petAnimationController;
 
         public Transform Player { get => player;  }
         public SkillControllerBase SkillController { get => skillController; }
         public PetBase Pet { get => pet; }
+
+
         public int ProjectileSpawnCount { get => projectileSpawnCount; set => projectileSpawnCount = value; }
 
         public virtual void Start()
         {
+            petAnimationController = GetComponent<PetAnimationControllerBase>();
             pet=GetComponent<PetBase>();
             fireRate = ((IATKS)pet.Atk).GetATKS();
             nextFireTime = fireRate;
@@ -87,7 +92,7 @@ namespace Tony.Pet
             nextFireTime += Time.deltaTime;
             if (nextFireTime >= fireRate)
             {
-               
+                petAnimationController.HitPetAnim();
                 projectileSpawn.Spawn(this.pet, projectileSpawnCount,firstEnemy.transform);
                 nextFireTime = 0f;
 
