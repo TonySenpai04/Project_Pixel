@@ -6,7 +6,7 @@ using UnityEngine;
 using Tony.Enemy;
 using Tony.Projectile;
 using Tony.Skill;
-using UnityEditor.Experimental.GraphView;
+using System.Linq;
 
 namespace Tony.Pet
 {
@@ -18,14 +18,15 @@ namespace Tony.Pet
         [SerializeField] protected Transform projectilePos;
         [SerializeField] protected Transform projectilePool;
         [SerializeField] protected IPetProjectileSpawn projectileSpawn;
-        [SerializeField] protected float fireRate;
-        [SerializeField] protected float nextFireTime;
+        //[SerializeField] protected float fireRate;
+        //[SerializeField] protected float nextFireTime;
         [SerializeField] protected int projectileSpawnCount = 1;
         [SerializeField] protected EnemyBase firstEnemy;
         [SerializeField] protected SkillControllerBase skillController;
+        [SerializeField] protected PetMovementController petMoveController;
         [SerializeField] protected PetAnimationControllerBase petAnimationController;
 
-        public Transform Player { get => player;  }
+        public Transform Player { get => player; }
         public SkillControllerBase SkillController { get => skillController; }
         public PetBase Pet { get => pet; }
 
@@ -35,68 +36,91 @@ namespace Tony.Pet
         public virtual void Start()
         {
             petAnimationController = GetComponent<PetAnimationControllerBase>();
-            pet=GetComponent<PetBase>();
-            fireRate = ((IATKS)pet.Atk).GetATKS();
-            nextFireTime = fireRate;
+            pet = GetComponent<PetBase>();
+            //fireRate = ((IATKS)pet.Atk).GetATKS();
+            //nextFireTime = fireRate;
         }
 
         [System.Obsolete]
         public virtual void Update()
         {
-            fireRate = ((IATKS)pet.Atk).GetATKS();
+            //  fireRate = ((IATKS)pet.Atk).GetATKS();
+            Move();
             HandleEnemyFound();
-      
+
         }
-       
+
         [System.Obsolete]
         public virtual void HandleEnemyFound()
         {
-            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)Pet.Atk).GetATKR());
+            Collider2D[] combinedColliders = GetAllCollidersInRange();
 
-            if (collider2Ds.Length > 0)
+            if (combinedColliders.Length > 0)
             {
-                bool enemyFound = false;
-             
-                foreach (var item in collider2Ds)
-                {
-                    var enemy = item.GetComponent<EnemyBase>();
-                    if (enemy != null)
-                    {
-                        firstEnemy = enemy;
-                        enemyFound = true;
-                        break;
-                    }
-                }
+                firstEnemy = FindFirstEnemy(combinedColliders);
 
-                if (enemyFound)
+                if (firstEnemy != null && firstEnemy.HitPoint.GetCurrentHealth() > 0
+                    && CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
                 {
-                    if (firstEnemy != null && firstEnemy.HitPoint.GetCurrentHealth()>0
-                        && CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
-                    {
-                        Attack();
-                    }
+                    // Attack();
+                    petAnimationController.HitPetAnim();
+                    petMoveController.LookAtEnemy(firstEnemy.transform);
                 }
                 else
                 {
                     firstEnemy = null;
+                    petMoveController.SyncPetRotationWithPlayer();
                 }
             }
             else
             {
                 firstEnemy = null;
+                petMoveController.SyncPetRotationWithPlayer();
             }
+        }
+        public virtual void Move()
+        {
+            petMoveController.PetMove();
+
+
+        }
+        public virtual Collider2D[] GetAllCollidersInRange()
+        {
+            Collider2D[] collider2Dsplayer = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)Pet.Atk).GetATKR());
+            Collider2D[] collider2Dspet = Physics2D.OverlapCircleAll(transform.position, ((IATKR)Pet.Atk).GetATKR());
+
+            // Combine both collider arrays
+            return collider2Dsplayer.Concat(collider2Dspet).ToArray();
+        }
+
+        public virtual EnemyBase FindFirstEnemy(Collider2D[] colliders)
+        {
+            foreach (var item in colliders)
+            {
+                var enemy = item.GetComponent<EnemyBase>();
+                if (enemy != null)
+                {
+                    return enemy;
+                }
+            }
+            return null;
         }
 
         public virtual void Attack()
         {
-            nextFireTime += Time.deltaTime;
-            if (nextFireTime >= fireRate)
+            if (firstEnemy != null)
             {
-                petAnimationController.HitPetAnim();
-                projectileSpawn.Spawn(this.pet, projectileSpawnCount,firstEnemy.transform);
-                nextFireTime = 0f;
-
+                projectileSpawn.Spawn(this.pet, projectileSpawnCount, firstEnemy.transform);
             }
+
+            //nextFireTime += Time.deltaTime;
+            //if (nextFireTime >= fireRate)
+            //{
+            //    petAnimationController.HitPetAnim();
+            //    projectileSpawn.Spawn(this.pet, projectileSpawnCount, firstEnemy.transform);
+            //    nextFireTime = 0f;
+
+            //}
         }
         public virtual void Skill1()
         {

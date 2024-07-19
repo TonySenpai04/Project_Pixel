@@ -11,15 +11,20 @@ namespace Tony.Pet
         [SerializeField] protected float moveSpeed = 3.0f;
         [SerializeField] protected bool isFlying = false;
         [SerializeField] protected bool isFacingRight = true;
-        [SerializeField] protected PetAnimationControllerBase petAnimationControllerBase;
+
         protected IMove petMove;
-        private void Start()
+        public virtual void Start()
         {
-            petAnimationControllerBase = GetComponent<PetAnimationControllerBase>();
+
             petMove = new PetMove(this.gameObject, this.player, this.moveSpeed);
         }
 
-        void Update()
+        public virtual void Update()
+        {
+
+
+        }
+        public virtual void PetMove()
         {
             if (isFlying)
             {
@@ -29,11 +34,7 @@ namespace Tony.Pet
             {
                 MoveOnGround();
             }
-            SyncPetRotationWithPlayer();
-            //if ((isFacingRight && player.localScale.x < 0) || (!isFacingRight && player.localScale.x > 0))
-            //{
-            //    Flip();
-            //}
+            //   SyncPetRotationWithPlayer();
         }
         public virtual void SyncPetRotationWithPlayer()
         {
@@ -44,18 +45,25 @@ namespace Tony.Pet
 
         public virtual void Fly()
         {
-            
-           petMove.Move(offsetX, flyHeight);
-            
-        }
 
+            petMove.Move(offsetX, flyHeight);
+
+        }
+        public virtual void LookAtEnemy(Transform enemy)
+        {
+            if (enemy == null) return;
+
+            Vector3 scale = transform.localScale;
+            scale.x = enemy.localScale.x > 0 ? -Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
         public virtual void MoveOnGround()
         {
-            
+
             petMove.Move(offsetX, 0);
-            
+
         }
-       
- 
+
+
     }
 }

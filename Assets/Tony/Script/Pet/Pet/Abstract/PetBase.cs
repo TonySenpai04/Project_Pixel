@@ -21,27 +21,27 @@ namespace Tony.Pet
         public TextAsset CSVFIle { get => csvFile; }
         public IHitPoint HitPoint { get => hitPoint; }
         public List<PetData> PetDatas { get => petDatas; }
-        public IATK Atk { get => atk;}
-        public ILevel Level { get => level;  }
+        public IATK Atk { get => atk; }
+        public ILevel Level { get => level; }
         public PetData petData;
         public virtual void Awake()
         {
             readCSV = new ReadPetCSV<PetData>(this);
             readCSV.ReadData(SetData);
-          
+
         }
         public virtual void SetData()
         {
 
             List<PetData> petDatasClone = readCSV.GetData();
-            this.petDatas=petDatasClone;
+            this.petDatas = petDatasClone;
             foreach (var item in PetDatas)
             {
                 if (item.PetID != "" && item.PetName != "")
                 {
                     this.petID = item.PetID;
                     this.petName = item.PetName;
-                }  
+                }
             }
             Initialization();
 
@@ -59,7 +59,7 @@ namespace Tony.Pet
                 UpdateStatsText(currentPetData);
             }
         }
-        
+
         protected virtual void UpdatePetData()
         {
             PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
@@ -70,7 +70,8 @@ namespace Tony.Pet
                 UpdateStatsText(currentPetData);
             }
         }
-        public virtual PetData GetCurrentData() {
+        public virtual PetData GetCurrentData()
+        {
             PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
 
             return currentPetData;
@@ -104,6 +105,10 @@ namespace Tony.Pet
 
             }
         }
-
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, 2);
+        }
     }
 }

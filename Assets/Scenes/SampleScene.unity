@@ -1122,7 +1122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00022134662}
+  m_AnchoredPosition: {x: 0, y: 0.8019234}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &502862166
@@ -1798,11 +1798,10 @@ MonoBehaviour:
   projectile: {fileID: 1781916526228843607, guid: 24a101351988ab84d83d4142c275df72, type: 3}
   projectilePos: {fileID: 1642570449}
   projectilePool: {fileID: 1927156411}
-  fireRate: 0.5
-  nextFireTime: 0.5
   projectileSpawnCount: 1
   firstEnemy: {fileID: 0}
   skillController: {fileID: 1640037378}
+  petMoveController: {fileID: 598976078}
   petAnimationController: {fileID: 0}
   skillSets:
   - attributes:
@@ -1984,7 +1983,6 @@ MonoBehaviour:
   moveSpeed: 3
   isFlying: 0
   isFacingRight: 1
-  petAnimationControllerBase: {fileID: 0}
 --- !u!114 &598976079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,7 +2625,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1677354108}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.990659
+  m_Size: 0.9637375
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4118,11 +4116,10 @@ MonoBehaviour:
   projectile: {fileID: 1781916526228843607, guid: f45885683db99ca4a894772b805e1dfc, type: 3}
   projectilePos: {fileID: 1712805380}
   projectilePool: {fileID: 1927156411}
-  fireRate: 0.5
-  nextFireTime: 0
   projectileSpawnCount: 1
   firstEnemy: {fileID: 0}
   skillController: {fileID: 0}
+  petMoveController: {fileID: 0}
   petAnimationController: {fileID: 0}
   skillSets:
   - attributes:
@@ -4203,7 +4200,6 @@ MonoBehaviour:
   moveSpeed: 3
   isFlying: 0
   isFacingRight: 1
-  petAnimationControllerBase: {fileID: 0}
 --- !u!1 &1359083717
 GameObject:
   m_ObjectHideFlags: 0
@@ -6271,7 +6267,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 831969186}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
