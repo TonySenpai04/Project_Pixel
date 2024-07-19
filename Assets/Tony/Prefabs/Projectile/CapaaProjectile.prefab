@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1781916526228843607}
   - component: {fileID: 1409749683711240234}
   - component: {fileID: -7468701524641684816}
-  - component: {fileID: -5762168996042546412}
   - component: {fileID: -5823296731423266335}
+  - component: {fileID: 698926550565539628}
   m_Layer: 0
   m_Name: CapaaProjectile
   m_TagString: Untagged
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.12763119, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a4d752daf7cfceb43bbada29058bb769, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.41, y: 1.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -114,8 +114,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-5762168996042546412
-CircleCollider2D:
+--- !u!114 &-5823296731423266335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399288033568131692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6d1ce1ffe631140ab59c2f7d7d0ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  Audio: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  dam: 0
+  target: {fileID: 0}
+  speed: 5
+  homingStrength: 0.1
+  petController: {fileID: 0}
+--- !u!60 &698926550565539628
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -149,25 +170,44 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &-5823296731423266335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399288033568131692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6d1ce1ffe631140ab59c2f7d7d0ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  col: {fileID: 0}
-  Audio: {fileID: 0}
-  origin: {x: 0, y: 0, z: 0}
-  dam: 0
-  target: {fileID: 0}
-  speed: 5
-  homingStrength: 0.1
-  petController: {fileID: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.41, y: 1.68}
+    newSize: {x: 1.41, y: 1.68}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.53499997, y: -0.42}
+      - {x: 0.555, y: -0.28}
+      - {x: 0.59499997, y: -0.22}
+      - {x: 0.59499997, y: -0.089999996}
+      - {x: 0.53499997, y: 0.03}
+      - {x: 0.59499997, y: 0.13}
+      - {x: 0.585, y: 0.26999998}
+      - {x: 0.545, y: 0.41}
+      - {x: 0.385, y: 0.52}
+      - {x: 0.205, y: 0.56}
+      - {x: 0.055, y: 0.58}
+      - {x: -0.16499999, y: 0.58}
+      - {x: -0.315, y: 0.56}
+      - {x: -0.505, y: 0.51}
+      - {x: -0.525, y: 0.48}
+      - {x: -0.615, y: 0.32}
+      - {x: -0.615, y: 0.19}
+      - {x: -0.545, y: -0.08}
+      - {x: -0.53499997, y: -0.21}
+      - {x: -0.59499997, y: -0.32999998}
+      - {x: -0.555, y: -0.44}
+      - {x: -0.545, y: -0.59999996}
+      - {x: -0.445, y: -0.66999996}
+      - {x: -0.155, y: -0.74}
+      - {x: 0.035, y: -0.77}
+      - {x: 0.21499999, y: -0.77}
+      - {x: 0.325, y: -0.76}
+      - {x: 0.465, y: -0.69}
+      - {x: 0.545, y: -0.51}
+  m_UseDelaunayMesh: 0
