@@ -39,7 +39,7 @@ namespace Tony.InventoryItem.UI
         {
             borderImage.enabled = false;
         }
-        public void SetData(Sprite sprite, int quantity)
+        public void SetData(Sprite sprite, double quantity)
         {
             itemImage.gameObject.SetActive(true);
             itemImage.sprite = sprite;

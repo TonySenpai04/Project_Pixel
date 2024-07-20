@@ -159,9 +159,12 @@ namespace Tony.InventoryItem
                     inventoryUI.Show();
                     foreach (var item in inventoryData.GetCurrentInventoryState())
                     {
-                        inventoryUI.UpdateData(item.Key,
-                            item.Value.item.ItemImage,
-                            item.Value.quantity);
+                        if (!item.Value.item.IsVisibleInInventory)
+                        {
+                            inventoryUI.UpdateData(item.Key,
+                                item.Value.item.ItemImage,
+                                item.Value.quantity);
+                        }
                     }
                 }
                 else

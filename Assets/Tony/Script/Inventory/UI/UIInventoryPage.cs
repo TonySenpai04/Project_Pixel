@@ -73,7 +73,7 @@ namespace Tony.InventoryItem.UI
         }
 
         public void UpdateData(int itemIndex,
-            Sprite itemImage, int itemQuantity)
+            Sprite itemImage, double itemQuantity)
         {
             if (listOfUIItems.Count > itemIndex)
             {

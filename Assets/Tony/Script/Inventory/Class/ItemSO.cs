@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Tony.Item
 {
-    [CreateAssetMenu]
-    public   class ItemSO : ScriptableObject
+
+    public abstract  class ItemSO : ScriptableObject
     {
+        [SerializeField]
+        public int ID;
         [field: SerializeField]
         public bool IsStackable { get; set; }
-        [SerializeField]
-        public int ID => GetInstanceID();
+
 
         [field: SerializeField]
-        public int MaxStackSize { get; set; } = 1;
+        public double MaxStackSize { get; set; } = 1;
 
         [field: SerializeField]
         public string Name { get; set; }
@@ -26,6 +27,8 @@ namespace Tony.Item
         [field: SerializeField]
         public Sprite BackGround { get; set; }
         [field: SerializeField] public int DropChange;
+        [field: SerializeField] public bool Consumable;
+        [field: SerializeField] public bool IsVisibleInInventory;
         [field: SerializeField] public ItemActionSO ItemAction { get; set; }
 
         // Method to use the item

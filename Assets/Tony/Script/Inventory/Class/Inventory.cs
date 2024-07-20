@@ -30,7 +30,7 @@ namespace Tony.InventoryItem
             }
         }
 
-        public int AddItem(ItemSO item, int quantity)
+        public double AddItem(ItemSO item, double quantity)
         {
             if (item.IsStackable == false)
             {
@@ -49,7 +49,7 @@ namespace Tony.InventoryItem
             return quantity;
         }
 
-        private int AddItemToFirstFreeSlot(ItemSO item, int quantity)
+        private double AddItemToFirstFreeSlot(ItemSO item, double quantity)
         {
             InventoryItem newItem = new InventoryItem
             {
@@ -71,7 +71,7 @@ namespace Tony.InventoryItem
         private bool IsInventoryFull()
             => inventoryItems.Where(item => item.IsEmpty).Any() == false;
 
-        private int AddStackableItem(ItemSO item, int quantity)
+        private double AddStackableItem(ItemSO item, double quantity)
         {
             for (int i = 0; i < inventoryItems.Count; i++)
             {
@@ -79,7 +79,8 @@ namespace Tony.InventoryItem
                     continue;
                 if (inventoryItems[i].item.ID == item.ID)
                 {
-                    int amountPossibleToTake =
+                
+                    double amountPossibleToTake =
                         inventoryItems[i].item.MaxStackSize - inventoryItems[i].quantity;
 
                     if (quantity > amountPossibleToTake)
@@ -99,7 +100,7 @@ namespace Tony.InventoryItem
             }
             while (quantity > 0 && IsInventoryFull() == false)
             {
-                int newQuantity = Mathf.Clamp(quantity, 0, item.MaxStackSize);
+                double newQuantity = Mathf.Clamp((float)quantity, 0, (float)item.MaxStackSize);
                 quantity -= newQuantity;
                 AddItemToFirstFreeSlot(item, newQuantity);
             }
@@ -112,7 +113,7 @@ namespace Tony.InventoryItem
             {
                 if (inventoryItems[itemIndex].IsEmpty)
                     return;
-                int reminder = inventoryItems[itemIndex].quantity - amount;
+                double reminder = inventoryItems[itemIndex].quantity - amount;
                 if (reminder <= 0)
                     inventoryItems[itemIndex] = InventoryItem.GetEmptyItem();
                 else
@@ -164,11 +165,11 @@ namespace Tony.InventoryItem
     [Serializable]
     public struct InventoryItem
     {
-        public int quantity;
+        public double quantity;
         public ItemSO item;
         public bool IsEmpty => item == null;
 
-        public InventoryItem ChangeQuantity(int newQuantity)
+        public InventoryItem ChangeQuantity(double newQuantity)
         {
             return new InventoryItem
             {

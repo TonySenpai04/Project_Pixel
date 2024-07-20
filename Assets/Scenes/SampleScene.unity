@@ -860,8 +860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemDrop: {fileID: 5624481389201716464, guid: 5028f204d77e137408b2951496c24ed3, type: 3}
   lootList:
-  - {fileID: 11400000, guid: 2407584912db99642b4e4a39e6f42733, type: 2}
-  - {fileID: 11400000, guid: 2407584912db99642b4e4a39e6f42733, type: 2}
+  - {fileID: 11400000, guid: 31b95b57a892bea41b5ad4d3b0be6f12, type: 2}
+  - {fileID: 11400000, guid: a45b117c6d33d164ea106bc9179c2187, type: 2}
 --- !u!114 &279807244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000004015268}
+  m_AnchoredPosition: {x: 0, y: 0.000033667133}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &502862166
