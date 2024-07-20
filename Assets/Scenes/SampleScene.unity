@@ -1167,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00012574713}
+  m_AnchoredPosition: {x: 0, y: -0.000004015268}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &502862166
@@ -2670,7 +2670,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1677354108}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999285
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3624,8 +3624,6 @@ MonoBehaviour:
   inventoryUI: {fileID: 1814951148}
   inventoryData: {fileID: 1133575328}
   initialItems: []
-  dropClip: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &1143583176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,229 +4055,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 279807238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1297734208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1297734211}
-  - component: {fileID: 1297734210}
-  - component: {fileID: 1297734212}
-  - component: {fileID: 1297734213}
-  - component: {fileID: 1297734214}
-  m_Layer: 0
-  m_Name: Drazuko
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!212 &1297734210
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297734208}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1297734211
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297734208}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.725305, y: -1.5606104, z: 0.06319229}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1712805380}
-  - {fileID: 1663890581}
-  m_Father: {fileID: 1529866573}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1297734212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297734208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5923166f266248c498f41a2d273a17e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  petID: 
-  petName: 
-  csvFile: {fileID: 4900000, guid: 50c5b2436d5c11d41905f378afd3009d, type: 3}
-  currentLevel: 1
-  statsTxt: {fileID: 1123080453}
-  petDatas: []
-  petData:
-    PetID: 
-    PetName: 
-    Level: 0
-    EXPNeed: 0
-    ATK: 0
-    HP: 0
-    ATKR: 0
-    ATKS: 0
-    CR: 0
-    CD: 0
-    CP: 0
-    LevelSkill1: 0
-    LevelSkill2: 0
-    LevelSkill3: 0
---- !u!114 &1297734213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297734208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3594fb33901ece142bd8ae64b84701aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pet: {fileID: 0}
-  player: {fileID: 1143583181}
-  projectile: {fileID: 1781916526228843607, guid: f45885683db99ca4a894772b805e1dfc, type: 3}
-  projectilePos: {fileID: 1712805380}
-  projectilePool: {fileID: 1927156411}
-  projectileSpawnCount: 1
-  firstEnemy: {fileID: 0}
-  skillController: {fileID: 0}
-  petMoveController: {fileID: 0}
-  petAnimationController: {fileID: 0}
-  skillSets:
-  - attributes:
-    - skillDuration: 0
-      additionalStatSkill: 0
-      coolDown: 0
-    - skillDuration: 8
-      additionalStatSkill: 10
-      coolDown: 45
-    - skillDuration: 8
-      additionalStatSkill: 20
-      coolDown: 35
-    - skillDuration: 8
-      additionalStatSkill: 30
-      coolDown: 25
-    - skillDuration: 8
-      additionalStatSkill: 40
-      coolDown: 15
-    currentSkillAttributes:
-      skillDuration: 0
-      additionalStatSkill: 0
-      coolDown: 0
-  - attributes:
-    - skillDuration: 0
-      additionalStatSkill: 0
-      coolDown: 0
-    - skillDuration: 8
-      additionalStatSkill: 1
-      coolDown: 45
-    - skillDuration: 8
-      additionalStatSkill: 2
-      coolDown: 35
-    - skillDuration: 8
-      additionalStatSkill: 2.5
-      coolDown: 25
-    - skillDuration: 8
-      additionalStatSkill: 3
-      coolDown: 15
-    currentSkillAttributes:
-      skillDuration: 0
-      additionalStatSkill: 0
-      coolDown: 0
-  - attributes:
-    - skillDuration: 0
-      additionalStatSkill: 0
-      coolDown: 0
-    - skillDuration: 4
-      additionalStatSkill: 2
-      coolDown: 60
-    - skillDuration: 5
-      additionalStatSkill: 2
-      coolDown: 50
-    - skillDuration: 7
-      additionalStatSkill: 2
-      coolDown: 40
-    - skillDuration: 9
-      additionalStatSkill: 2
-      coolDown: 30
-    currentSkillAttributes:
-      skillDuration: 0
-      additionalStatSkill: 0
-      coolDown: 0
---- !u!114 &1297734214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297734208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d291d0f2ed238e44907c944b4d25344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1143583181}
-  flyHeight: 2
-  offsetX: 1.3
-  moveSpeed: 3
-  isFlying: 0
-  isFacingRight: 1
 --- !u!1 &1359083717
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,7 +4327,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1297734211}
+  - {fileID: 8389044615201248788}
   - {fileID: 598976071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4685,60 +4460,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 598976071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1663890579
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1663890581}
-  - component: {fileID: 1663890580}
-  m_Layer: 0
-  m_Name: Skills
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1663890580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663890579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d9147dcd28e55a49846003b4288f4ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAbility1Cooldown: 0
-  isAbility2Cooldown: 0
-  isAbility3Cooldown: 0
-  currentAbility1Cooldown: 0
-  currentAbility2Cooldown: 0
-  currentAbility3Cooldown: 0
-  isSkill1: 0
-  isSkill2: 0
-  isSkill3: 0
-  pet: {fileID: 1297734212}
---- !u!4 &1663890581
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663890579}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1297734211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1677354107
 GameObject:
@@ -4951,37 +4672,6 @@ MonoBehaviour:
   isPressed: 0
   playerController: {fileID: 1143583188}
   btn: {fileID: 0}
---- !u!1 &1712805379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1712805380}
-  m_Layer: 0
-  m_Name: ProjectilePos
-  m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1712805380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712805379}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.91, y: 0.07, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1297734211}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738213031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6390,6 +6080,212 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135492300}
   m_CullTransparentMesh: 1
+--- !u!4 &451810523564742957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941150296112567471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8389044615201248788}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902185133569530257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283217031830062826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3594fb33901ece142bd8ae64b84701aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pet: {fileID: 0}
+  player: {fileID: 1143583181}
+  projectile: {fileID: 1781916526228843607, guid: f45885683db99ca4a894772b805e1dfc, type: 3}
+  projectilePos: {fileID: 6136098860376215357}
+  projectilePool: {fileID: 1927156411}
+  projectileSpawnCount: 1
+  firstEnemy: {fileID: 0}
+  skillController: {fileID: 0}
+  petMoveController: {fileID: 0}
+  petAnimationController: {fileID: 0}
+  skillSets:
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 8
+      additionalStatSkill: 10
+      coolDown: 45
+    - skillDuration: 8
+      additionalStatSkill: 20
+      coolDown: 35
+    - skillDuration: 8
+      additionalStatSkill: 30
+      coolDown: 25
+    - skillDuration: 8
+      additionalStatSkill: 40
+      coolDown: 15
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 8
+      additionalStatSkill: 1
+      coolDown: 45
+    - skillDuration: 8
+      additionalStatSkill: 2
+      coolDown: 35
+    - skillDuration: 8
+      additionalStatSkill: 2.5
+      coolDown: 25
+    - skillDuration: 8
+      additionalStatSkill: 3
+      coolDown: 15
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+  - attributes:
+    - skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+    - skillDuration: 4
+      additionalStatSkill: 2
+      coolDown: 60
+    - skillDuration: 5
+      additionalStatSkill: 2
+      coolDown: 50
+    - skillDuration: 7
+      additionalStatSkill: 2
+      coolDown: 40
+    - skillDuration: 9
+      additionalStatSkill: 2
+      coolDown: 30
+    currentSkillAttributes:
+      skillDuration: 0
+      additionalStatSkill: 0
+      coolDown: 0
+--- !u!1 &2283217031830062826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8389044615201248788}
+  - component: {fileID: 7884188886758892908}
+  - component: {fileID: 8130537269919567441}
+  - component: {fileID: 1902185133569530257}
+  - component: {fileID: 5731883577085142752}
+  m_Layer: 0
+  m_Name: Drazuko
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &2941150296112567471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451810523564742957}
+  - component: {fileID: 5267002347852309090}
+  m_Layer: 0
+  m_Name: Skills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &4914865108454369720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6136098860376215357}
+  m_Layer: 0
+  m_Name: ProjectilePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &5267002347852309090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941150296112567471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9147dcd28e55a49846003b4288f4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAbility1Cooldown: 0
+  isAbility2Cooldown: 0
+  isAbility3Cooldown: 0
+  currentAbility1Cooldown: 0
+  currentAbility2Cooldown: 0
+  currentAbility3Cooldown: 0
+  isSkill1: 0
+  isSkill2: 0
+  isSkill3: 0
+  pet: {fileID: 8130537269919567441}
+--- !u!114 &5731883577085142752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283217031830062826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d291d0f2ed238e44907c944b4d25344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1143583181}
+  flyHeight: 2
+  offsetX: 1.3
+  moveSpeed: 3
+  isFlying: 0
+  isFacingRight: 1
+--- !u!4 &6136098860376215357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4914865108454369720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.91, y: 0.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8389044615201248788}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6788968421060533609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6491,6 +6387,108 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466c8e907ebffeb47983217bcf7f14b6, type: 3}
+--- !u!212 &7884188886758892908
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283217031830062826}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &8130537269919567441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283217031830062826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5923166f266248c498f41a2d273a17e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  petID: 
+  petName: 
+  csvFile: {fileID: 4900000, guid: 50c5b2436d5c11d41905f378afd3009d, type: 3}
+  currentLevel: 1
+  statsTxt: {fileID: 1123080453}
+  petDatas: []
+  petData:
+    PetID: 
+    PetName: 
+    Level: 0
+    EXPNeed: 0
+    ATK: 0
+    HP: 0
+    ATKR: 0
+    ATKS: 0
+    CR: 0
+    CD: 0
+    CP: 0
+    LevelSkill1: 0
+    LevelSkill2: 0
+    LevelSkill3: 0
+--- !u!4 &8389044615201248788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283217031830062826}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.725305, y: -1.5606104, z: 0.06319229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6136098860376215357}
+  - {fileID: 451810523564742957}
+  m_Father: {fileID: 1529866573}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

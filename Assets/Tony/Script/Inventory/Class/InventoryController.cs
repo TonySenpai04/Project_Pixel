@@ -19,12 +19,6 @@ namespace Tony.InventoryItem
 
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
-        [SerializeField]
-        private AudioClip dropClip;
-
-        [SerializeField]
-        private AudioSource audioSource;
-
         private void Start()
         {
             PrepareUI();
@@ -88,7 +82,7 @@ namespace Tony.InventoryItem
         {
             inventoryData.RemoveItem(itemIndex, quantity);
             inventoryUI.ResetSelection();
-            audioSource.PlayOneShot(dropClip);
+          //  audioSource.PlayOneShot(dropClip);
         }
 
         public void PerformAction(int itemIndex)
@@ -135,6 +129,7 @@ namespace Tony.InventoryItem
                 return;
             }
             ItemSO item = inventoryItem.item;
+            item.UseItem();
             string description = PrepareDescription(inventoryItem);
             inventoryUI.UpdateDescription(itemIndex, item.ItemImage,
                 item.name, description);

@@ -26,8 +26,21 @@ namespace Tony.Item
         [field: SerializeField]
         public Sprite BackGround { get; set; }
         [field: SerializeField] public int DropChange;
-        //[field: SerializeField] public int index;
-        
+        [field: SerializeField] public ItemActionSO ItemAction { get; set; }
+
+        // Method to use the item
+        public void UseItem()
+        {
+            if (ItemAction != null)
+            {
+                ItemAction.Use();
+            }
+            else
+            {
+                Debug.LogWarning($"{Name} does not have a defined action.");
+            }
+        }
+
     }
    
    
