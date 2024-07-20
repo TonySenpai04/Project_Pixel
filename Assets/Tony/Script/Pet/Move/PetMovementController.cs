@@ -11,6 +11,7 @@ namespace Tony.Pet
         [SerializeField] protected float moveSpeed = 3.0f;
         [SerializeField] protected bool isFlying = false;
         [SerializeField] protected bool isFacingRight = true;
+        private float standingThreshold =1.4f;
 
         protected IMove petMove;
         public virtual void Start()
@@ -23,6 +24,12 @@ namespace Tony.Pet
         {
 
 
+        }
+        public virtual bool IsStandingStill()
+        {
+            Vector3 currentPosition = transform.position;
+            bool isStandingStill = Vector3.Distance(currentPosition, player.transform.position) <= standingThreshold;
+            return isStandingStill;
         }
         public virtual void PetMove()
         {

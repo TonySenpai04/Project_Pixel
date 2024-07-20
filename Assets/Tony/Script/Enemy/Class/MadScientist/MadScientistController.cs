@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using Tony.Projectile;
 using UnityEngine;
 using Tony.Skill;
+using Tony.Player;
 
 namespace Tony.Enemy
 {
@@ -34,7 +35,7 @@ namespace Tony.Enemy
 
                 foreach (var item in collider2Ds)
                 {
-                    var player = item.GetComponent<CharacterStats>();
+                    var player = item.GetComponent<PlayerControllerBase>();
                     if (player != null)
                     {
                         this.player = player;
@@ -45,7 +46,7 @@ namespace Tony.Enemy
 
                 if (playerFound)
                 {
-                    if (player != null && player.HitPoint.GetCurrentHealth() > 0)
+                    if (player != null && player.Stats.HitPoint.GetCurrentHealth() > 0)
                     {
 
                         Attack();

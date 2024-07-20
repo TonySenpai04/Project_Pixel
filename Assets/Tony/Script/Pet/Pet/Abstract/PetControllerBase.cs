@@ -18,36 +18,30 @@ namespace Tony.Pet
         [SerializeField] protected Transform projectilePos;
         [SerializeField] protected Transform projectilePool;
         [SerializeField] protected IPetProjectileSpawn projectileSpawn;
-        //[SerializeField] protected float fireRate;
-        //[SerializeField] protected float nextFireTime;
         [SerializeField] protected int projectileSpawnCount = 1;
         [SerializeField] protected EnemyBase firstEnemy;
         [SerializeField] protected SkillControllerBase skillController;
         [SerializeField] protected PetMovementController petMoveController;
         [SerializeField] protected PetAnimationControllerBase petAnimationController;
-
+        protected bool isRun;
+        protected bool isAtk;
         public Transform Player { get => player; }
         public SkillControllerBase SkillController { get => skillController; }
         public PetBase Pet { get => pet; }
-
-
         public int ProjectileSpawnCount { get => projectileSpawnCount; set => projectileSpawnCount = value; }
 
         public virtual void Start()
         {
             petAnimationController = GetComponent<PetAnimationControllerBase>();
             pet = GetComponent<PetBase>();
-            //fireRate = ((IATKS)pet.Atk).GetATKS();
-            //nextFireTime = fireRate;
         }
 
         [System.Obsolete]
         public virtual void Update()
         {
-            //  fireRate = ((IATKS)pet.Atk).GetATKS();
             Move();
             HandleEnemyFound();
-
+            HandleAnimation();
         }
 
         [System.Obsolete]
@@ -61,35 +55,49 @@ namespace Tony.Pet
 
                 if (firstEnemy != null && firstEnemy.HitPoint.GetCurrentHealth() > 0
                     && CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
-                {
-                    // Attack();
+                {       
                     petAnimationController.HitPetAnim();
                     petMoveController.LookAtEnemy(firstEnemy.transform);
+                    isAtk = true;
+                    isRun = false;
                 }
                 else
                 {
                     firstEnemy = null;
+                    isRun=true;
+                    isAtk=false;
                     petMoveController.SyncPetRotationWithPlayer();
                 }
             }
             else
             {
                 firstEnemy = null;
+                isRun = true;
+                isAtk = false;
                 petMoveController.SyncPetRotationWithPlayer();
             }
         }
         public virtual void Move()
         {
             petMoveController.PetMove();
-
-
+        }
+        protected virtual void HandleAnimation()
+        {
+            if (petMoveController.IsStandingStill() && !isAtk)
+            {
+                petAnimationController.IdlePetAnim();
+                isRun = false;
+            }
+            if (isRun)
+            {
+                petAnimationController.RunPetAnim();
+            }
+           
         }
         public virtual Collider2D[] GetAllCollidersInRange()
         {
             Collider2D[] collider2Dsplayer = Physics2D.OverlapCircleAll(player.transform.position, ((IATKR)Pet.Atk).GetATKR());
             Collider2D[] collider2Dspet = Physics2D.OverlapCircleAll(transform.position, ((IATKR)Pet.Atk).GetATKR());
-
-            // Combine both collider arrays
             return collider2Dsplayer.Concat(collider2Dspet).ToArray();
         }
 
@@ -112,15 +120,6 @@ namespace Tony.Pet
             {
                 projectileSpawn.Spawn(this.pet, projectileSpawnCount, firstEnemy.transform);
             }
-
-            //nextFireTime += Time.deltaTime;
-            //if (nextFireTime >= fireRate)
-            //{
-            //    petAnimationController.HitPetAnim();
-            //    projectileSpawn.Spawn(this.pet, projectileSpawnCount, firstEnemy.transform);
-            //    nextFireTime = 0f;
-
-            //}
         }
         public virtual void Skill1()
         {

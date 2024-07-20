@@ -8,7 +8,7 @@ namespace Tony
         public override void Start()
         {
             base.Start();
-             btn.onClick.AddListener(movementController.Jump);
+             btn.onClick.AddListener(playerController.Jump);
         }
 
     }

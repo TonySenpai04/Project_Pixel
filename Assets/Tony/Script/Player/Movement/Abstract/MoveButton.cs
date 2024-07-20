@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Tony.Player;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -11,7 +11,7 @@ namespace Tony
     public abstract class MoveButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] protected bool isPressed;
-        [SerializeField] protected MovementController movementController;
+        [SerializeField] protected PlayerControllerBase playerController;
         [SerializeField] protected Button btn;
 
         public virtual void Start()
@@ -30,7 +30,7 @@ namespace Tony
         public virtual void OnPointerUp(PointerEventData eventData)
         {
             isPressed = false;
-            movementController.StopMovement();
+            playerController.StopMovement();
         }
 
     }

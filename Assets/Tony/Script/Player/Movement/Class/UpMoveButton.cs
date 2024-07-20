@@ -13,7 +13,7 @@ namespace Tony
         {
             if (isPressed)
             {
-                movementController.MoveUp();
+                playerController.MovementController.MoveUp();
             }
 
         }

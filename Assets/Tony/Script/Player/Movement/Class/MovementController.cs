@@ -19,21 +19,15 @@ namespace Tony
         public override void Start()
         {
             rb = GetComponentInParent<Rigidbody2D>();
-            heroAnimationController = GetComponentInParent<HeroAnimationControllerBase>();
             move = new Movement(this.rb, this.groundCheck, this.groundLayer);
             jump = new Jump(this.rb, this.groundCheck, this.groundLayer);
             player = rb.transform;
         }
 
-        //public override void Update()
-        //{
-        //    Debug.Log(this.groundCheck.position.y);
-        //}
         public override void MoveLeft()
         {
             if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
             {
-                heroAnimationController.RunHeroAnim();
                 move.Move(-moveSpeed, rb.velocity.y);
                 if (facingRight)
                 {
@@ -47,7 +41,6 @@ namespace Tony
         {
             if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
             {
-                heroAnimationController.RunHeroAnim();
                 move.Move(moveSpeed, rb.velocity.y);
                 if (!facingRight)
                 {
@@ -60,7 +53,6 @@ namespace Tony
         {
             if (CharacterStats.instance.HitPoint.GetCurrentHealth() > 0)
             {
-                heroAnimationController.JumpHeroAnim();
                 jump.Jump(jumpingPower);
             }
         }
@@ -77,8 +69,6 @@ namespace Tony
         {
 
             rb.velocity = Vector2.zero;
-
-            heroAnimationController.IdleHeroAnim();
 
         }
 

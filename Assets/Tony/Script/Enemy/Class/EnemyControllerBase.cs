@@ -4,12 +4,13 @@ using Tony.Item;
 using Tony.Projectile;
 using Tony.Skill;
 using UnityEngine;
+using Tony.Player;
 namespace Tony.Enemy
 {
     public abstract class EnemyControllerBase : MonoBehaviour
     {
         [SerializeField] protected EnemyBase enemy;
-        [SerializeField] protected CharacterStats player;
+        [SerializeField] protected PlayerControllerBase player;
         [SerializeField] protected Transform projectile;
         [SerializeField] protected Transform projectilePos;
         [SerializeField] protected Transform projectilePool;
@@ -49,7 +50,7 @@ namespace Tony.Enemy
 
                 foreach (var item in collider2Ds)
                 {
-                    var player = item.GetComponent<CharacterStats>();
+                    var player = item.GetComponent<PlayerControllerBase>();
                     if (player != null)
                     {
                         this.player = player;
@@ -60,7 +61,7 @@ namespace Tony.Enemy
 
                 if (playerFound)
                 {
-                    if (player != null && player.HitPoint.GetCurrentHealth()>0)
+                    if (player != null && player.Stats.HitPoint.GetCurrentHealth()>0)
                     {
                         Attack();
                     }
