@@ -20,8 +20,16 @@ namespace Tony.Item
             if (item != null)
             {
                 Debug.Log("Pick up + " + item.ItemSO.Name);
-                inventory.AddItem(item.ItemSO,1);
-                item.DestroyItem();
+                if (inventory.IsInventoryFull())
+                {
+                    Debug.Log("Invrntory Full");
+                    return;
+                }
+                else
+                {
+                    inventory.AddItem(item.ItemSO, 1);
+                    item.DestroyItem();
+                }
                
             }
         }

@@ -15,10 +15,11 @@ MonoBehaviour:
   ID: 2
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: 
+  <Name>k__BackingField: Gemn
   <Description>k__BackingField: 
-  <ItemImage>k__BackingField: {fileID: 0}
+  <ItemImage>k__BackingField: {fileID: -217839338637596666, guid: b7d3a8f0366dcd84995a63482118deab, type: 3}
   <BackGround>k__BackingField: {fileID: 0}
   DropChange: 0
   Consumable: 1
+  IsVisibleInInventory: 1
   <ItemAction>k__BackingField: {fileID: 0}

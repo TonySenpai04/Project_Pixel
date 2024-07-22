@@ -38,7 +38,6 @@ public abstract class EnemyAnimationControllerBase : MonoBehaviour
     public virtual void HitEnemytAnim()
     {
         ChangeAnimationState("EnemyHit");
-        Debug.Log("aaa");
     }
     public virtual void Skill1EnemyAnim()
     {

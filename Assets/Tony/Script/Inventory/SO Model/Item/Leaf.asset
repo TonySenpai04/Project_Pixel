@@ -15,10 +15,11 @@ MonoBehaviour:
   ID: 3
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: 
+  <Name>k__BackingField: Leaf
   <Description>k__BackingField: 
-  <ItemImage>k__BackingField: {fileID: 0}
+  <ItemImage>k__BackingField: {fileID: 7647240639167449756, guid: 685cabc152de9354391cab737764bf4c, type: 3}
   <BackGround>k__BackingField: {fileID: 0}
   DropChange: 0
   Consumable: 1
+  IsVisibleInInventory: 0
   <ItemAction>k__BackingField: {fileID: 0}

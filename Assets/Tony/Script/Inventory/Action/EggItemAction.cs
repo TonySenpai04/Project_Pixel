@@ -8,12 +8,12 @@ namespace Tony.Item
     public class EggItemAction : ItemActionSO
     {
         public float eggHatchingTime;
-      //  public PetBase petReceived;
+        public string petReceived;
 
         public override void Use()
         {
-            Debug.Log("Egg Hatching Time " + eggHatchingTime + " Day");
-            //Debug.Log("Pet Received " + petReceived.name);
+            Debug.Log("Egg Hatching Time: " + eggHatchingTime + " Day");
+            Debug.Log("Pet Received: " + petReceived);
         }
     }
 }

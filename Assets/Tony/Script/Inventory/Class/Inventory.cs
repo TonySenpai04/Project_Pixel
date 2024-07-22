@@ -32,6 +32,8 @@ namespace Tony.InventoryItem
 
         public double AddItem(ItemSO item, double quantity)
         {
+           
+
             if (item.IsStackable == false)
             {
                 for (int i = 0; i < inventoryItems.Count; i++)
@@ -68,7 +70,7 @@ namespace Tony.InventoryItem
             return 0;
         }
 
-        private bool IsInventoryFull()
+        public bool IsInventoryFull()
             => inventoryItems.Where(item => item.IsEmpty).Any() == false;
 
         private double AddStackableItem(ItemSO item, double quantity)
