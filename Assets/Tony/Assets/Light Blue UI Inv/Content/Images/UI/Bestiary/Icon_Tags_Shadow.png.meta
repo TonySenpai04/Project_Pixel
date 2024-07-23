@@ -316,6 +316,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1736,7 +1748,74 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Icon_Tags_Shadow_0: -5018651283799144051
+      Icon_Tags_Shadow_1: 2193742935202548233
+      Icon_Tags_Shadow_10: 1729568334305359306
+      Icon_Tags_Shadow_11: 3862251561178882692
+      Icon_Tags_Shadow_12: -875731997880100477
+      Icon_Tags_Shadow_13: 7622418857450360189
+      Icon_Tags_Shadow_14: -6714889817234775623
+      Icon_Tags_Shadow_15: 5647884405745864735
+      Icon_Tags_Shadow_16: 1351883302947058961
+      Icon_Tags_Shadow_17: 8665373655040078580
+      Icon_Tags_Shadow_18: 913933955025245098
+      Icon_Tags_Shadow_19: -5892236666565488242
+      Icon_Tags_Shadow_2: -4443036906697519256
+      Icon_Tags_Shadow_20: 7379933699698772527
+      Icon_Tags_Shadow_21: -5894946835849758250
+      Icon_Tags_Shadow_22: 1435890408538021061
+      Icon_Tags_Shadow_23: -281589690799963434
+      Icon_Tags_Shadow_24: -1934315424615395119
+      Icon_Tags_Shadow_25: 6008105966836360752
+      Icon_Tags_Shadow_26: 3856383164177367598
+      Icon_Tags_Shadow_27: -129444722259257414
+      Icon_Tags_Shadow_28: -5809266225876671868
+      Icon_Tags_Shadow_29: -8198765413142126731
+      Icon_Tags_Shadow_3: 8885865708810341203
+      Icon_Tags_Shadow_30: 3290672879435634255
+      Icon_Tags_Shadow_31: -6062343709174529858
+      Icon_Tags_Shadow_32: -6169933771954369266
+      Icon_Tags_Shadow_33: 5479421297317449916
+      Icon_Tags_Shadow_34: -6683170280928348919
+      Icon_Tags_Shadow_35: -6781077473934889513
+      Icon_Tags_Shadow_36: 4697867281915843117
+      Icon_Tags_Shadow_37: -4831690035894241415
+      Icon_Tags_Shadow_38: -6216457132253110602
+      Icon_Tags_Shadow_39: 6123971506527352726
+      Icon_Tags_Shadow_4: 6958187861574731004
+      Icon_Tags_Shadow_40: 7075151931361366376
+      Icon_Tags_Shadow_41: 5240763781772058426
+      Icon_Tags_Shadow_42: 5335250806793914464
+      Icon_Tags_Shadow_43: -4013151703910157538
+      Icon_Tags_Shadow_44: -1001662243115611987
+      Icon_Tags_Shadow_45: 4796344337961783200
+      Icon_Tags_Shadow_46: 1304437547482378652
+      Icon_Tags_Shadow_47: -5685531312353850632
+      Icon_Tags_Shadow_48: 2539539597191162429
+      Icon_Tags_Shadow_49: -8299329566066622186
+      Icon_Tags_Shadow_5: 996977919084826356
+      Icon_Tags_Shadow_50: -4140784727430870470
+      Icon_Tags_Shadow_51: 970722241887566083
+      Icon_Tags_Shadow_52: -6577741731844803251
+      Icon_Tags_Shadow_53: 7045683822720015913
+      Icon_Tags_Shadow_54: 6046936524972357240
+      Icon_Tags_Shadow_55: 5288684191108236245
+      Icon_Tags_Shadow_56: 5239410090621311341
+      Icon_Tags_Shadow_57: -157529610785261131
+      Icon_Tags_Shadow_58: 7905469262151042722
+      Icon_Tags_Shadow_59: -2559004718483205556
+      Icon_Tags_Shadow_6: 1611060825153984952
+      Icon_Tags_Shadow_60: -4028217046322607938
+      Icon_Tags_Shadow_61: 3218534921397250614
+      Icon_Tags_Shadow_62: -9047484862372258119
+      Icon_Tags_Shadow_63: 449510640072527066
+      Icon_Tags_Shadow_64: 1393645665545069103
+      Icon_Tags_Shadow_65: -2600059111162866794
+      Icon_Tags_Shadow_66: -5230885304874827167
+      Icon_Tags_Shadow_7: -347118196918605207
+      Icon_Tags_Shadow_8: -271245947530413302
+      Icon_Tags_Shadow_9: 3074245439195249536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

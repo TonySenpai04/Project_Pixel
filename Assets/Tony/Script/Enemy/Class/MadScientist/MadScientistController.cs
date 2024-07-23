@@ -14,9 +14,9 @@ namespace Tony.Enemy
 
     public class MadScientistController : EnemyControllerBase
     {
-       
+
         public List<SkillData.SkillSet> skillSets;
-        
+
 
         public override void Start()
         {
@@ -98,11 +98,6 @@ namespace Tony.Enemy
             skillSets[1].attributes[skill2].coolDown, skillSets[2].attributes[skill3].coolDown);
 
         }
-
-    
-
-
-}
-
+    }
 }
 

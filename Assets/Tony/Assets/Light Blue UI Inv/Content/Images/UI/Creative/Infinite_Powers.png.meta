@@ -178,6 +178,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -632,7 +644,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Infinite_Powers_0: 248116733669526293
+      Infinite_Powers_1: -4702782387087946805
+      Infinite_Powers_10: -8168601884391472447
+      Infinite_Powers_11: -2768974493491031692
+      Infinite_Powers_12: -1965925568224097821
+      Infinite_Powers_13: 4426697302947624229
+      Infinite_Powers_14: -3835864306212434370
+      Infinite_Powers_15: 2089332824253009232
+      Infinite_Powers_16: 3971277672184657282
+      Infinite_Powers_17: -4187912111716613010
+      Infinite_Powers_18: 905560539481318303
+      Infinite_Powers_19: 4368300129373981791
+      Infinite_Powers_2: 5382968644691304709
+      Infinite_Powers_20: 3568506804283345624
+      Infinite_Powers_3: -2639913005642987434
+      Infinite_Powers_4: -2982662828793256858
+      Infinite_Powers_5: -6884534834066057177
+      Infinite_Powers_6: 765201541740288118
+      Infinite_Powers_7: 7404213433653743606
+      Infinite_Powers_8: -382458098982017859
+      Infinite_Powers_9: -1382735404422822911
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

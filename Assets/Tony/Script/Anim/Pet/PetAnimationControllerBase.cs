@@ -14,7 +14,7 @@ public abstract class PetAnimationControllerBase : MonoBehaviour
     }
     public virtual void ChangeAnimationState(string newAnimationState)
     {
-        //if (currentAnimationState == newAnimationState) return;
+        if (currentAnimationState == newAnimationState) return;
         
 
         animator.Play(newAnimationState);
