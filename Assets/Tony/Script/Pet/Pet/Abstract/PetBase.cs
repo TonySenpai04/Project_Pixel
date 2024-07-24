@@ -23,7 +23,12 @@ namespace Tony.Pet
         public List<PetData> PetDatas { get => petDatas; }
         public IATK Atk { get => atk; }
         public ILevel Level { get => level; }
+        public string PetID { get => petID; }
+        public  string PetName { get => petName; }
+
         public PetData petData;
+        public bool isUnlock;
+        public Sprite petIcon;
         public virtual void Awake()
         {
             readCSV = new ReadPetCSV<PetData>(this);
@@ -46,7 +51,7 @@ namespace Tony.Pet
             Initialization();
 
         }
-        protected virtual void Initialization()
+        public virtual void Initialization()
         {
             PetData currentPetData = PetDatas.Find(item => item.Level == currentLevel);
 

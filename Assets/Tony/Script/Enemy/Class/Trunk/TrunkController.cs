@@ -8,6 +8,8 @@ using Tony.Projectile;
 using UnityEngine;
 using Tony.Skill;
 using Tony.Player;
+using Tony.Item;
+using Tony.Pet;
 
 namespace Tony.Enemy
 {
@@ -16,7 +18,7 @@ namespace Tony.Enemy
     {
 
         public List<SkillData.SkillSet> skillSets;
-
+        [SerializeField] private string petReceivedId;
 
         public override void Start()
         {
@@ -97,6 +99,20 @@ namespace Tony.Enemy
             skillController.SetAbilityCooldown(skillSets[0].attributes[skill1].coolDown,
             skillSets[1].attributes[skill2].coolDown, skillSets[2].attributes[skill3].coolDown);
 
+        }
+        public override void OnDeath()
+        {
+            if (enemy.HitPoint.GetCurrentHealth() <= 0)
+            {
+                GetComponent<DropItem>().CreateItem(this.transform.position);
+                PetBase pet = PetManager.instance.FindPetById(petReceivedId);
+                if (PetManager.instance.PetSlotManager.petSlots.Count < 3)
+                {
+                    PetManager.instance.PetSlotManager.petSlots.Add(pet);
+                    PetManager.instance.PetSlotManager.UpdateAllSlotButtons();
+                }
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tony.Pet;
@@ -8,6 +8,7 @@ namespace Tony.Projectile
     public class CapaaProjectile : GenericProjectile
     {
         [SerializeField] private PetControllerBase petController;
+ 
         public override void Awake()
         {
             base.Awake();

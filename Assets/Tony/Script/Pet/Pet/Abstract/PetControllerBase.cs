@@ -32,7 +32,7 @@ namespace Tony.Pet
 
         public virtual void Start()
         {
-            petAnimationController = GetComponent<PetAnimationControllerBase>();
+            petAnimationController = GetComponentInChildren<PetAnimationControllerBase>();
             pet = GetComponent<PetBase>();
         }
 

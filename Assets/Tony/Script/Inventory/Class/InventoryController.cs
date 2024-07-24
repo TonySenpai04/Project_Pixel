@@ -130,6 +130,7 @@ namespace Tony.InventoryItem
             }
             ItemSO item = inventoryItem.item;
             item.UseItem();
+            inventoryData.RemoveItem(itemIndex, 1);
             string description = PrepareDescription(inventoryItem);
             inventoryUI.UpdateDescription(itemIndex, item.ItemImage,
                 item.name, description);

@@ -10,7 +10,7 @@ public abstract class PetAnimationControllerBase : MonoBehaviour
 
     public virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
     public virtual void ChangeAnimationState(string newAnimationState)
     {

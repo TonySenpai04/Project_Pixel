@@ -11,13 +11,15 @@ namespace Tony.Pet
         [SerializeField] protected float moveSpeed = 3.0f;
         [SerializeField] protected bool isFlying = false;
         [SerializeField] protected bool isFacingRight = true;
+        [SerializeField] protected Transform owner;
         private float standingThreshold =1.4f;
+
 
         protected IMove petMove;
         public virtual void Start()
         {
 
-            petMove = new PetMove(this.gameObject, this.player, this.moveSpeed);
+            petMove = new PetMove(this.owner.gameObject, this.player, this.moveSpeed);
         }
 
         public virtual void Update()
@@ -27,7 +29,7 @@ namespace Tony.Pet
         }
         public virtual bool IsStandingStill()
         {
-            Vector3 currentPosition = transform.position;
+            Vector3 currentPosition = owner.transform.position;
             bool isStandingStill = Vector3.Distance(currentPosition, player.transform.position) <= standingThreshold;
             return isStandingStill;
         }
@@ -45,9 +47,9 @@ namespace Tony.Pet
         }
         public virtual void SyncPetRotationWithPlayer()
         {
-            Vector3 scale = transform.localScale;
+            Vector3 scale = owner.transform.localScale;
             scale.x = player.localScale.x > 0 ? -Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
-            transform.localScale = scale;
+            owner.transform.localScale = scale;
         }
 
         public virtual void Fly()
@@ -60,9 +62,9 @@ namespace Tony.Pet
         {
             if (enemy == null) return;
 
-            Vector3 scale = transform.localScale;
+            Vector3 scale = owner.transform.localScale;
             scale.x = enemy.localScale.x > 0 ? -Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
-            transform.localScale = scale;
+            owner.transform.localScale = scale;
         }
         public virtual void MoveOnGround()
         {

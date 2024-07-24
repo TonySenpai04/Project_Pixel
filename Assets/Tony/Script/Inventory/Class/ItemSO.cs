@@ -37,6 +37,7 @@ namespace Tony.Item
             if (ItemAction != null)
             {
                 ItemAction.Use();
+                
             }
             else
             {

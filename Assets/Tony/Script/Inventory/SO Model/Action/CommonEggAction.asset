@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CommonEggAction
   m_EditorClassIdentifier: 
   eggHatchingTime: 1
-  petReceived: 20001
+  petReceivedId: 20001

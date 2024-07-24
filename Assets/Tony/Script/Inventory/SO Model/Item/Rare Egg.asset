@@ -19,7 +19,7 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <ItemImage>k__BackingField: {fileID: 3487742248518389104, guid: 0f7451b5db655f141a3714bcb789bf64, type: 3}
   <BackGround>k__BackingField: {fileID: 0}
-  DropChange: 0
-  Consumable: 0
+  DropChange: 100
+  Consumable: 1
   IsVisibleInInventory: 0
-  <ItemAction>k__BackingField: {fileID: 0}
+  <ItemAction>k__BackingField: {fileID: 11400000, guid: e7bc15a0c37c8bd428e09fb6e48c3715, type: 2}

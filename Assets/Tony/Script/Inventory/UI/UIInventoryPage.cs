@@ -47,6 +47,9 @@ namespace Tony.InventoryItem.UI
                     Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
                 uiItem.transform.SetParent(contentPanel);
                 uiItem.GetComponent<RectTransform>().localScale = Vector3.one;
+                uiItem.GetComponent<RectTransform>().localScale = Vector3.one;
+                uiItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                uiItem.GetComponent<RectTransform>().localPosition = Vector3.zero;
                 listOfUIItems.Add(uiItem);
                 uiItem.OnItemClicked += HandleItemSelection;
                 uiItem.OnItemBeginDrag += HandleBeginDrag;

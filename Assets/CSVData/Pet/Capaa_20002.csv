@@ -1,6 +1,6 @@
 ID,Name,Level,EXP need,ATK,HP,ATKR,ATKS,CR,CD,CP,LV_SKILL 1,LV_SKILL 2,LV_SKILL 3
-20001,Drazuko,1,10000,3,1,2,0.2,0.25,1.2,48.5,0,0,0
-,Rồng + Nezuko,2,20000,14,1,2,0.2,0.25,1.2,89,0,0,0
+20002,Capaa,1,10000,3,1,2,0.2,0.25,1.2,48.5,0,0,0
+,Mèo + Da-pan,2,20000,14,1,2,0.2,0.25,1.2,89,0,0,0
 ,,3,30000,16,1,2,0.2,0.25,1.2,99,0,0,0
 ,,4,40000,18,1,2,0.2,0.25,1.2,109,1,0,0
 ,,5,50000,21,1,2,0.2,0.25,1.2,124,1,1,0
@@ -20,19 +20,19 @@ ID,Name,Level,EXP need,ATK,HP,ATKR,ATKS,CR,CD,CP,LV_SKILL 1,LV_SKILL 2,LV_SKILL 
 ,,19,190000,133,1,2,0.2,0.45,2,684,4,4,4
 ,,20,200000,146,1,2,0.2,0.45,2,749,4,4,4
 ,,,,,,,,,,,,,
-Tấn công mặc định,,,,,,,,,,,,,
-Khạc lửa màu hồng,,,,,,,,,,,,,
-,,,,,,,,,,,,,
+Tấn công mặc định,,,,,,,,,,Anim ,,,
+Bắn ra đạn hình chân mèo,,,,,,,,,,Idle ,,,
+,,,,,,,,,,Di chuyển,Run,,
 SKILL 1,,,,,,,,,,,,,
-"Trong 8 giây từ khi kích hoạt kỹ năng, tỉ lệ chí mạng được tăng thêm 10/20/30/40%",,,,,,,,,,,,,
+"Trong 8 giây từ khi kích hoạt kỹ năng, mỗi đòn đánh có tỉ lệ 20/40/60/100% hồi HP cho nhân vật. Lượng hồi phục bằng 50/50/50/100% sát thương gây ra.",,,,,,,,,,,,,
 Cooldown: 45/35/25/15 giây,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 SKILL 2 ,,,,,,,,,,,,,
-Tăng ATK của pet thêm 1 lượng bằng với 150/200/250/300% ATK của nhân vật,,,,,,,,,,,,,
+"Tạo một lớp khiên xung quanh nhân vật trong vòng 8 giây, chặn sát thương bằng với (ATK nhân vật + 10/30/50/70% ATK của pet)",,,,,,,,,,,,,
 Cooldown: 45/35/25/15 giấy,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 SKILL 3,,,,,,,,,,,,,
-Tăng gấp đôi số lượng đạn tấn công trong vòng 4/5/7/9 giây,,,,,,,,,,,,,
+"Trong 3/4/5/6 giây, tất cả sát thương nhận vào với nhân vật đều bị giảm 1 lượng bằng với 20% ATK của pet.",,,,,,,,,,,,,
 Cooldown: 60/50/40/30 giây,,,,,,,,,,,,,
